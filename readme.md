@@ -36,6 +36,7 @@ The following tables and columns will be necessary.
   - id
   - title
   - img_url
+  - user_id - *References Users*
   - genre_id - *References Genres*
 - **Favorites**
   - id
