@@ -53,7 +53,7 @@ songs = songs.join(",");
 
 let favorites = [];
 
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 80; i++) {
   let user_id = Math.ceil(Math.random() * 20);
   let song_id = Math.ceil(Math.random() * 50);
 

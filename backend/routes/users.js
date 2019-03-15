@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
+
+const {
+  getAllUsers,
+  getSingleUser,
+  addUser,
+  deleteUser
+} = require("../db/queries/usersQueries.js");
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get("/", getAllUsers);
+router.get("/:user_id", getSingleUser);
+router.post("/", addUser);
+router.delete("/:user_id", deleteUser);
 
 module.exports = router;
