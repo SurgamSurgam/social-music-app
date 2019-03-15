@@ -6,7 +6,7 @@ This exam, like many exams before it, will be an **open-book, project-driven exa
 
 You are permitted the use of online resources, including your notes. However, you are not permitted to discuss the exam with your peers or to share code. If you have questions, or would like to discuss details of the exam, please talk to an instructor or TA.
 
-You are welcome (encouraged, required) to utilize GitHub and Git for this exam. Until the conclusion of the exam period, please **make your repositories private** and invite the Web Instructional staff as collaborators to your repo. 
+You are welcome (encouraged, required) to utilize GitHub and Git for this exam. Until the conclusion of the exam period, please **make your repositories private** and invite the Web Instructional staff as collaborators to your repo.
 
 As you continue to work through this project make regular commits because we will be monitoring your commit history for code consistency and educational integrity.
 
@@ -102,7 +102,7 @@ You should have the following routes on your frontend:
     - Underneath each list of comments, there should be a `form` tag with a `text` input and a `submit` button that reads: "Add Comment."
     - When the user submits this form, they should POST a new comment to the song. The list of comments should then reflect this new comment on the frontend.
 - `/songs/bypop` - AKA "By Popularity." A list of all songs sorted by number of favorites. No search functionality required.
-  - Songs should include favorites, likes, and their accompanying functionalities - exactly as described in the `/songs` route above.
+  - Songs should include favorites, comments, and their accompanying functionalities - exactly as described in the `/songs` route above.
 - `/songs/bygenre` - AKA "By Genre."
   - At first, this route should look exactly like `/songs`, sorted by post date, and with each song including favorites, likes, and their accompanying functionalities.
   - However, there should be a `select` input in the form instead of a `text` input. By default, this should be blank, displaying all songs. It should be populated with `option` tags representing each genre in the `Genres` table of your database.

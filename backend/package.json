@@ -6,6 +6,7 @@
     "start": "supervisor ./bin/www"
   },
   "dependencies": {
+    "billboard-top-100": "^2.4.3",
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
