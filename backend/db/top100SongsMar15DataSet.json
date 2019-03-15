@@ -1,0 +1,552 @@
+[
+  {
+    "rank": 1,
+    "title": "Sucker",
+    "artist": "Jonas Brothers",
+    "cover": "https://charts-static.billboard.com/img/2008/07/jonas-brothers-m8u-174x174.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": 1,
+      "weeksOnChart": 1
+    }
+  },
+  {
+    "rank": 2,
+    "title": "7 Rings",
+    "artist": "Ariana Grande",
+    "cover": "https://charts-static.billboard.com/img/2019/01/ariana-grande-ypy-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 3,
+    "title": "Please Me",
+    "artist": "Cardi B & Bruno Mars",
+    "cover": "https://charts-static.billboard.com/img/2019/02/cardi-b-n38-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 4,
+    "title": "Sunflower (Spider-Man: Into The Spider-Verse)",
+    "artist": "Post Malone & Swae Lee",
+    "cover": "https://charts-static.billboard.com/img/2018/10/post-malone-tp6-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 5,
+    "title": "Without Me",
+    "artist": "Halsey",
+    "cover": "https://charts-static.billboard.com/img/2018/10/halsey-7xl-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 6,
+    "title": "Shallow",
+    "artist": "Lady Gaga & Bradley Cooper",
+    "cover": "https://charts-static.billboard.com/img/2018/10/lady-gaga-gyl-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 7,
+    "title": "Wow.",
+    "artist": "Post Malone",
+    "cover": "https://charts-static.billboard.com/img/2019/01/post-malone-tp6-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 8,
+    "title": "Happier",
+    "artist": "Marshmello & Bastille",
+    "cover": "https://charts-static.billboard.com/img/2018/08/marshmello-ttp-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 9,
+    "title": "Middle Child",
+    "artist": "J. Cole",
+    "cover": "https://charts-static.billboard.com/img/2019/02/j-cole-s1s-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 10,
+    "title": "Sicko Mode",
+    "artist": "Travis Scott",
+    "cover": "https://charts-static.billboard.com/img/2018/08/travis-scott-jll-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 11,
+    "title": "Thank U, Next",
+    "artist": "Ariana Grande",
+    "cover": "https://charts-static.billboard.com/img/2018/11/ariana-grande-ypy-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 12,
+    "title": "High Hopes",
+    "artist": "Panic! At The Disco",
+    "cover": "https://charts-static.billboard.com/img/2018/06/panic-at-the-disco-yl6-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 13,
+    "title": "Thotiana",
+    "artist": "Blueface",
+    "cover": "https://charts-static.billboard.com/img/2019/01/blueface-2aw-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 14,
+    "title": "Eastside",
+    "artist": "benny blanco, Halsey & Khalid",
+    "cover": "https://charts-static.billboard.com/img/2018/07/benny-blanco-000-eastside-70k-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 15,
+    "title": "Break Up With Your Girlfriend, I'm Bored",
+    "artist": "Ariana Grande",
+    "cover": "https://charts-static.billboard.com/img/2019/02/ariana-grande-ypy-break-up-with-your-girlfriend-im-bored-iv2-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 16,
+    "title": "Going Bad",
+    "artist": "Meek Mill Featuring Drake",
+    "cover": "https://charts-static.billboard.com/img/2018/12/meek-mill-utw-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 18,
+    "title": "A Lot",
+    "artist": "21 Savage",
+    "cover": "https://charts-static.billboard.com/img/2019/01/21-savage-jjg-53x53.jpg",
+    "position": {
+      "positionLastWeek": 18,
+      "peakPosition": 12,
+      "weeksOnChart": 11
+    }
+  },
+  {
+    "rank": 19,
+    "title": "Girls Like You",
+    "artist": "Maroon 5 Featuring Cardi B",
+    "cover": "https://charts-static.billboard.com/img/2018/06/maroon-5-9st-girls-like-you-32b-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 20,
+    "title": "Dancing With A Stranger",
+    "artist": "Sam Smith & Normani",
+    "cover": "https://charts-static.billboard.com/img/2019/01/sam-smith-9q2-53x53.jpg",
+    "position": {
+      "positionLastWeek": 22,
+      "peakPosition": 20,
+      "weeksOnChart": 8
+    }
+  },
+  {
+    "rank": 21,
+    "title": "Better",
+    "artist": "Khalid",
+    "cover": "https://charts-static.billboard.com/img/2018/09/khalid-dsk-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 22,
+    "title": "Drip Too Hard",
+    "artist": " Lil Baby & Gunna",
+    "cover": "https://charts-static.billboard.com/img/2018/09/lil-baby-nwx-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 23,
+    "title": "Money",
+    "artist": "Cardi B",
+    "cover": "https://charts-static.billboard.com/img/2018/11/cardi-b-n38-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 24,
+    "title": "Sweet But Psycho",
+    "artist": "Ava Max",
+    "cover": "https://charts-static.billboard.com/img/2018/11/ava-max-k5u-sweet-but-psycho-yjd-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 25,
+    "title": "Beautiful Crazy",
+    "artist": "Luke Combs",
+    "cover": "https://charts-static.billboard.com/img/2018/05/luke-combs-y14-53x53.jpg",
+    "position": {
+      "positionLastWeek": 23,
+      "peakPosition": 23,
+      "weeksOnChart": 17
+    }
+  },
+  {
+    "rank": 26,
+    "title": "Be Alright",
+    "artist": "Dean Lewis",
+    "cover": "https://charts-static.billboard.com/img/2018/09/dean-lewis-k5z-53x53.jpg",
+    "position": {
+      "positionLastWeek": 29,
+      "peakPosition": 26,
+      "weeksOnChart": 19
+    }
+  },
+  {
+    "rank": 27,
+    "title": "MIA",
+    "artist": " Bad Bunny Featuring Drake",
+    "cover": "https://charts-static.billboard.com/img/2018/10/bad-bunny-157-mia-5n5-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 28,
+    "title": "ZEZE",
+    "artist": "Kodak Black Featuring Travis Scott & Offset",
+    "cover": "https://charts-static.billboard.com/img/2018/10/kodak-black-fap-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 29,
+    "title": "Better Now",
+    "artist": "Post Malone",
+    "cover": "https://charts-static.billboard.com/img/2018/05/post-malone-tp6-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 30,
+    "title": "Youngblood",
+    "artist": "5 Seconds Of Summer",
+    "cover": "https://charts-static.billboard.com/img/2018/04/5-seconds-of-summer-deq-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 31,
+    "title": "Close To Me",
+    "artist": "Ellie Goulding X Diplo Featuring Swae Lee",
+    "cover": "https://charts-static.billboard.com/img/2018/11/ellie-goulding-1mr-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 32,
+    "title": "You Say",
+    "artist": "Lauren Daigle",
+    "cover": "https://charts-static.billboard.com/img/2018/07/lauren-daigle-vvo-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 33,
+    "title": "Tequila",
+    "artist": "Dan + Shay",
+    "cover": "https://charts-static.billboard.com/img/2018/01/dan-shay-zji-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 34,
+    "title": "Robbery",
+    "artist": "Juice WRLD",
+    "cover": "https://charts-static.billboard.com/img/2019/02/juice-wrld-f0a-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 35,
+    "title": "Look Back At It",
+    "artist": "A Boogie Wit da Hoodie",
+    "cover": "https://charts-static.billboard.com/img/2018/12/a-boogie-wit-da-hoodie-89d-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 36,
+    "title": "Lucid Dreams",
+    "artist": "Juice WRLD",
+    "cover": "https://charts-static.billboard.com/img/2018/05/juice-wrld-f0a-lucid-dreams-zso-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 38,
+    "title": "Baby Shark",
+    "artist": "Pinkfong",
+    "cover": "https://charts-static.billboard.com/img/2018/10/pinkfong-vxn-baby-shark-gmt-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 40,
+    "title": "Envy Me",
+    "artist": "Calboy",
+    "cover": "https://charts-static.billboard.com/img/2018/12/calboy-000-envy-me-7cr-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 41,
+    "title": "I Like It",
+    "artist": "Cardi B, Bad Bunny & J Balvin",
+    "cover": "https://charts-static.billboard.com/img/2018/04/cardi-b-n38-i-like-it-ppy-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 42,
+    "title": "Bury A Friend",
+    "artist": "Billie Eilish",
+    "cover": "https://charts-static.billboard.com/img/2019/02/billie-eilish-hl2-87x87.jpg",
+    "position": {
+      "positionLastWeek": 41,
+      "peakPosition": 14,
+      "weeksOnChart": 6
+    }
+  },
+  {
+    "rank": 43,
+    "title": "Taki Taki",
+    "artist": "DJ Snake Featuring Selena Gomez, Ozuna & Cardi B",
+    "cover": "https://charts-static.billboard.com/img/2018/10/dj-snake-4qv-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 44,
+    "title": "Wake Up In The Sky",
+    "artist": " Gucci Mane X Bruno Mars X Kodak Black",
+    "cover": "https://charts-static.billboard.com/img/2018/09/gucci-mane-fyx-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 45,
+    "title": "Leave Me Alone",
+    "artist": "Flipp Dinero",
+    "cover": "https://charts-static.billboard.com/img/2018/09/flipp-dinero-amv-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 47,
+    "title": "Mo Bamba",
+    "artist": "Sheck Wes",
+    "cover": "https://charts-static.billboard.com/img/2018/09/sheck-wes-fiq-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 48,
+    "title": "Swervin",
+    "artist": "A Boogie Wit da Hoodie Featuring 6ix9ine",
+    "cover": "https://charts-static.billboard.com/img/2019/01/a-boogie-wit-da-hoodie-89d-53x53.jpg",
+    "position": {
+      "positionLastWeek": 44,
+      "peakPosition": 38,
+      "weeksOnChart": 11
+    }
+  },
+  {
+    "rank": 49,
+    "title": "Talk",
+    "artist": "Khalid",
+    "cover": "https://charts-static.billboard.com/img/2019/02/khalid-dsk-53x53.jpg",
+    "position": {
+      "positionLastWeek": 55,
+      "peakPosition": 44,
+      "weeksOnChart": 4
+    }
+  },
+  {
+    "rank": 51,
+    "title": "Pure Water",
+    "artist": "Mustard & Migos",
+    "cover": "https://charts-static.billboard.com/img/2019/02/dj-mustard-946-53x53.jpg",
+    "position": {
+      "positionLastWeek": 52,
+      "peakPosition": 51,
+      "weeksOnChart": 6
+    }
+  },
+  {
+    "rank": 52,
+    "title": "Look What God Gave Her",
+    "artist": "Thomas Rhett",
+    "cover": "https://charts-static.billboard.com/img/2019/03/thomas-rhett-r0o-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 53,
+    "title": "This Is It",
+    "artist": "Scotty McCreery",
+    "cover": "https://charts-static.billboard.com/img/2018/03/scotty-mccreery-qgz-53x53.jpg",
+    "position": {
+      "positionLastWeek": 51,
+      "peakPosition": 42,
+      "weeksOnChart": 13
+    }
+  },
+  {
+    "rank": 54,
+    "title": "Take It From Me",
+    "artist": "Jordan Davis",
+    "cover": "https://charts-static.billboard.com/img/2018/05/jordan-davis-err-53x53.jpg",
+    "position": {
+      "positionLastWeek": null,
+      "peakPosition": null,
+      "weeksOnChart": null
+    }
+  },
+  {
+    "rank": 55,
+    "title": "Millionaire",
+    "artist": "Chris Stapleton",
+    "cover": "https://charts-static.billboard.com/img/2017/11/chris-stapleton-ha2-53x53.jpg",
+    "position": {
+      "positionLastWeek": 57,
+      "peakPosition": 55,
+      "weeksOnChart": 13
+    }
+  }
+]
