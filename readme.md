@@ -6,7 +6,9 @@ This exam, like many exams before it, will be an **open-book, project-driven exa
 
 You are permitted the use of online resources, including your notes. However, you are not permitted to discuss the exam with your peers or to share code. If you have questions, or would like to discuss details of the exam, please talk to an instructor or TA.
 
-You are welcome (encouraged, required) to utilize GitHub and Git for this exam. Until the conclusion of the exam period, please **make your repositories private**.
+You are welcome (encouraged, required) to utilize GitHub and Git for this exam. Until the conclusion of the exam period, please **make your repositories private** and invite the Web Instructional staff as collaborators to your repo. 
+
+As you continue to work through this project make regular commits because we will be monitoring your commit history for code consistency and educational integrity.
 
 ## Exam - Earworm Report
 
