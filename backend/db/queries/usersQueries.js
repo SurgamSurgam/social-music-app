@@ -45,7 +45,7 @@ const addUser = (req, res, next) => {
 
 const deleteUser = (req, res, next) => {
   console.log(+req.params.user_id);
-  db.none("DELETE FROM users WHERE id=$1", [+req.params.id])
+  db.none("DELETE FROM users WHERE id=$1", [+req.params.user_id])
     .then(() => {
       res.status(200).json({
         status: "success",
