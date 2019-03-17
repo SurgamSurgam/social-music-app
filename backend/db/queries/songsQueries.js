@@ -69,7 +69,6 @@ const getSingleSong = (req, res, next) => {
 };
 
 const addSong = (req, res, next) => {
-  console.log("yo", req.body);
   db.none(
     "INSERT INTO songs(title, img_url, user_id, genre_id) VALUES ($1, $2, $3, $4)",
     [req.body.title, req.body.img_url, +req.body.user_id, +req.body.genre_id]
@@ -86,10 +85,8 @@ const addSong = (req, res, next) => {
 };
 
 const deleteSong = (req, res, next) => {
-  console.log(+req.params.song_id);
   db.result("DELETE FROM songs WHERE id=$1", [+req.params.song_id])
     .then(result => {
-      console.log("broo:", result);
       res.status(200).json({
         status: "success",
         message: "Song deleted!",
@@ -97,7 +94,6 @@ const deleteSong = (req, res, next) => {
       });
     })
     .catch(error => {
-      console.log(error);
       next(error);
     });
 };
