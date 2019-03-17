@@ -17,19 +17,19 @@ CREATE TABLE songs (
   id SERIAL PRIMARY KEY,
   title VARCHAR NOT NULL,
   img_url TEXT,
-  user_id INT REFERENCES users(id),
-  genre_id INT REFERENCES genres(id)
+  user_id INT REFERENCES users(id) ON DELETE SET NULL,
+  genre_id INT REFERENCES genres(id) ON DELETE SET NULL
 );
 
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY,
-  user_id INT REFERENCES users(id),
-  song_id INT REFERENCES songs(id)
+  user_id INT REFERENCES users(id) ON DELETE SET NULL,
+  song_id INT REFERENCES songs(id) ON DELETE SET NULL
 );
 
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
   comment_body TEXT,
-  user_id INT REFERENCES users(id),
-  song_id INT REFERENCES songs(id)
+  user_id INT REFERENCES users(id) ON DELETE SET NULL,
+  song_id INT REFERENCES songs(id) ON DELETE SET NULL
 );
