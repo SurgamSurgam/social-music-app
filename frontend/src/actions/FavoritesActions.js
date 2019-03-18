@@ -1,4 +1,6 @@
 import { RECEIVE_ALL_FAVORITES_FOR_USER } from "./actionTypes.js";
+// import { DELETE_FAVORITE } from "./actionTypes.js";
+// import { ADD_FAVORITE } from "./actionTypes.js";
 import axios from "axios";
 
 export const receiveAllFavoritesForUserId1 = favorites => {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Songs extends React.Component {
   state = {
@@ -66,17 +67,18 @@ class Songs extends React.Component {
     return searchResultsMapped;
   };
 
-  deleteFavorite = favId => {
-    console.log("to delete fav:", favId);
+  deleteFavorite = async favId => {
+    await axios.delete(`/api/favorites/${+favId}`);
+    this.props.getAllSongs();
+    this.props.getAllFavoritesForOneUser();
   };
 
-  addFavorite = songId => {
-    //userId default to 1
-    console.log("to add fav:", songId);
-  };
+  addFavorite = async songId => {
+    //user default to 1
 
-  mapUsersFavorites = () => {
-    // let favsMapped = Object.values(this.props.allFavoritesForUser).map(fav => )
+    await axios.post("/api/favorites", { user_id: 1, song_id: +songId });
+    this.props.getAllSongs();
+    this.props.getAllFavoritesForOneUser();
   };
 
   render() {
@@ -121,7 +123,7 @@ class Songs extends React.Component {
           if (answer.length) {
             favId = answer[0].id;
           }
-          debugger;
+
           return (
             <div className="songsMappedDiv" key={song.id}>
               <h1>Title: {song.title}</h1>
