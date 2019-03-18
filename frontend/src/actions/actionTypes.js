@@ -1,2 +1,5 @@
 //Songs
 export const RECEIVE_ALL_SONGS = "RECEIVE_ALL_SONGS";
+
+//Favorites
+export const RECEIVE_ALL_FAVORITES_FOR_USER = "RECEIVE_ALL_FAVORITES_FOR_USER";

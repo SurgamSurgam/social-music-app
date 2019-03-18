@@ -10,6 +10,7 @@ class Songs extends React.Component {
 
   componentDidMount() {
     this.props.getAllSongs();
+    this.props.getAllFavoritesForOneUser();
   }
 
   handleChange = e => {
@@ -65,14 +66,62 @@ class Songs extends React.Component {
     return searchResultsMapped;
   };
 
+  deleteFavorite = favId => {
+    console.log("to delete fav:", favId);
+  };
+
+  addFavorite = songId => {
+    //userId default to 1
+    console.log("to add fav:", songId);
+  };
+
+  mapUsersFavorites = () => {
+    // let favsMapped = Object.values(this.props.allFavoritesForUser).map(fav => )
+  };
+
   render() {
-    console.log(this.state);
+    // console.log(this.state);
 
     let songsMapped;
     if (this.props.allSongs) {
       songsMapped = Object.values(this.props.allSongs)
         .reverse()
         .map(song => {
+          // let that = this;
+          // let user1favs;
+          // if (that.props.allFavoritesForUser) {
+          //   user1favs = Object.values(that.props.allFavoritesForUser).map(
+          //     fav => {
+          //       debugger;
+          //       return fav.song_id === song.id;
+          //     }
+          //   );
+          // }
+          // ************************************************************
+
+          // let answer = [];
+          // if (this.props.allFavoritesForUser) {
+          //   answer = Object.values(this.props.allFavoritesForUser).map(fav => {
+          //     if (song.id === fav.song_id) {
+          //       return fav.id;
+          //     } else {
+          //       return false;
+          //     }
+          //   });
+          // }
+          let answer = [];
+          if (this.props.allFavoritesForUser) {
+            answer = Object.values(this.props.allFavoritesForUser).filter(
+              fav => {
+                return song.id === fav.song_id;
+              }
+            );
+          }
+          let favId;
+          if (answer.length) {
+            favId = answer[0].id;
+          }
+          debugger;
           return (
             <div className="songsMappedDiv" key={song.id}>
               <h1>Title: {song.title}</h1>
@@ -86,10 +135,33 @@ class Songs extends React.Component {
                 User's username HERE!{" "}
                 <Link to={"/profile"}>{song.user_id}</Link>
               </h2>
+
+              {favId ? (
+                <button onClick={() => this.deleteFavorite(favId)}>
+                  Unfavorite
+                </button>
+              ) : (
+                <button onClick={() => this.addFavorite(song.id)}>
+                  Favorite
+                </button>
+              )}
+
+              {/*{answer.includes(true) ? (
+                <button onClick={this.handleFavorite}>Unfavorite</button>
+              ) : (
+                <button onClick={this.handleFavorite}>Favorite</button>
+              )}*/}
+
+              {/*{user1favs ? (
+                <button onClick={this.handleFavorite}>Unfavorite</button>
+              ) : (
+                <button onClick={this.handleFavorite}>Favorite</button>
+              )}*/}
             </div>
           );
         });
     }
+
     return (
       <div className="songsWrapper">
         <h1>SONGS PAGE</h1>
