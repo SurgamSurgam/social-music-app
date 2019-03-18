@@ -29,7 +29,7 @@ class Songs extends React.Component {
       return song.title.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
-    if (filteredSongs.length) {
+    if (filteredSongs.length && this.state.searchQuery) {
       let mappedSearchedResults = this.mapSearchResults(filteredSongs);
 
       this.setState({
@@ -40,7 +40,8 @@ class Songs extends React.Component {
     } else {
       this.setState({
         notFound: true,
-        searchQuery: ""
+        searchQuery: "",
+        searchResults: []
       });
     }
   };
@@ -61,6 +62,15 @@ class Songs extends React.Component {
             <h2>
               User's username HERE! <Link to={"/profile"}>{song.user_id}</Link>
             </h2>
+            {/*{favId ? (
+              <button onClick={() => this.deleteFavorite(favId)}>
+                Unfavorite
+              </button>
+            ) : (
+              <button onClick={() => this.addFavorite(song.id)}>
+                Favorite
+              </button>
+            )}*/}
           </div>
         );
       });
@@ -82,36 +92,15 @@ class Songs extends React.Component {
   };
 
   render() {
-    // console.log(this.state);
+    console.log(this.state);
 
     let songsMapped;
     if (this.props.allSongs) {
       songsMapped = Object.values(this.props.allSongs)
         .reverse()
         .map(song => {
-          // let that = this;
-          // let user1favs;
-          // if (that.props.allFavoritesForUser) {
-          //   user1favs = Object.values(that.props.allFavoritesForUser).map(
-          //     fav => {
-          //       debugger;
-          //       return fav.song_id === song.id;
-          //     }
-          //   );
-          // }
-          // ************************************************************
-
-          // let answer = [];
-          // if (this.props.allFavoritesForUser) {
-          //   answer = Object.values(this.props.allFavoritesForUser).map(fav => {
-          //     if (song.id === fav.song_id) {
-          //       return fav.id;
-          //     } else {
-          //       return false;
-          //     }
-          //   });
-          // }
           let answer = [];
+
           if (this.props.allFavoritesForUser) {
             answer = Object.values(this.props.allFavoritesForUser).filter(
               fav => {
@@ -147,18 +136,6 @@ class Songs extends React.Component {
                   Favorite
                 </button>
               )}
-
-              {/*{answer.includes(true) ? (
-                <button onClick={this.handleFavorite}>Unfavorite</button>
-              ) : (
-                <button onClick={this.handleFavorite}>Favorite</button>
-              )}*/}
-
-              {/*{user1favs ? (
-                <button onClick={this.handleFavorite}>Unfavorite</button>
-              ) : (
-                <button onClick={this.handleFavorite}>Favorite</button>
-              )}*/}
             </div>
           );
         });
