@@ -4,7 +4,7 @@ import { getAllSongs } from "../actions/SongsActions.js";
 
 const mapStateToProps = state => {
   return {
-    allSongs: state.allSongs
+    allSongs: state.songs.allSongs
   };
 };
 
