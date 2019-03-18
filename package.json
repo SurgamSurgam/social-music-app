@@ -1,0 +1,21 @@
+{
+  "name": "web_final_practical",
+  "version": "1.0.0",
+  "description": "## Opening Remarks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others \"cd frontend && npm start\" \"cd backend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SurgamSurgam/web_final_practical.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SurgamSurgam/web_final_practical/issues"
+  },
+  "homepage": "https://github.com/SurgamSurgam/web_final_practical#readme"
+}
