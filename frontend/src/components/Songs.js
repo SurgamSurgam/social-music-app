@@ -6,7 +6,8 @@ class Songs extends React.Component {
   state = {
     searchQuery: "",
     searchResults: [],
-    notFound: false
+    notFound: false,
+    favToggle: false
   };
 
   componentDidMount() {
@@ -21,7 +22,9 @@ class Songs extends React.Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
 
     const { searchQuery } = this.state;
 
@@ -37,6 +40,13 @@ class Songs extends React.Component {
         searchQuery: "",
         notFound: false
       });
+    } else if (this.state.favToggle) {
+      this.setState({
+        notFound: false,
+        searchQuery: "",
+        searchResults: [],
+        favToggle: false
+      });
     } else {
       this.setState({
         notFound: true,
@@ -50,6 +60,16 @@ class Songs extends React.Component {
     let searchResultsMapped = Object.values(results)
       .reverse()
       .map(song => {
+        let answer = [];
+        if (this.props.allFavoritesForUser) {
+          answer = Object.values(this.props.allFavoritesForUser).filter(fav => {
+            return song.id === fav.song_id;
+          });
+        }
+        let favId;
+        if (answer.length) {
+          favId = answer[0].id;
+        }
         return (
           <div className="songsMappedDiv" key={song.id}>
             <h1>Title: {song.title}</h1>
@@ -62,7 +82,7 @@ class Songs extends React.Component {
             <h2>
               User's username HERE! <Link to={"/profile"}>{song.user_id}</Link>
             </h2>
-            {/*{favId ? (
+            {favId ? (
               <button onClick={() => this.deleteFavorite(favId)}>
                 Unfavorite
               </button>
@@ -70,7 +90,7 @@ class Songs extends React.Component {
               <button onClick={() => this.addFavorite(song.id)}>
                 Favorite
               </button>
-            )}*/}
+            )}
           </div>
         );
       });
@@ -81,6 +101,10 @@ class Songs extends React.Component {
     await axios.delete(`/api/favorites/${+favId}`);
     this.props.getAllSongs();
     this.props.getAllFavoritesForOneUser();
+    await this.setState({
+      favToggle: !this.state.favToggle
+    });
+    this.handleSubmit();
   };
 
   addFavorite = async songId => {
@@ -89,7 +113,13 @@ class Songs extends React.Component {
     await axios.post("/api/favorites", { user_id: 1, song_id: +songId });
     this.props.getAllSongs();
     this.props.getAllFavoritesForOneUser();
+    await this.setState({
+      favToggle: !this.state.favToggle
+    });
+    this.handleSubmit();
   };
+
+  handleFavoriteInSearchView = () => {};
 
   render() {
     console.log(this.state);
