@@ -159,7 +159,6 @@ class Songs extends React.Component {
           let filteredCommentsMapped;
           if (filteredCommentsArrObj.length) {
             filteredCommentsMapped = filteredCommentsArrObj.map(comment => {
-              debugger;
               return (
                 <div className="commentsContainerDiv">
                   <h3>{comment.user_id}</h3>
@@ -205,7 +204,6 @@ class Songs extends React.Component {
                 <input
                   name="commentInput"
                   type="text"
-                  value={this.state.commentInput}
                   onChange={this.handleChange}
                 />
                 <button type="submit">Add Comment</button>
