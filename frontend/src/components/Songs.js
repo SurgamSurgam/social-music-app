@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import SongDisplay from "./SongDisplay.js";
 
 class Songs extends React.Component {
   state = {
@@ -121,10 +122,6 @@ class Songs extends React.Component {
     this.handleSubmit();
   };
 
-  handleCommentInputSubmit = e => {
-    e.preventDefault();
-    console.log("submitted my comment");
-  };
   render() {
     console.log(this.state);
 
@@ -133,82 +130,19 @@ class Songs extends React.Component {
       songsMapped = Object.values(this.props.allSongs)
         .reverse()
         .map(song => {
-          //For favs below----
-          let answer = [];
-          if (this.props.allFavoritesForUser) {
-            answer = Object.values(this.props.allFavoritesForUser).filter(
-              fav => {
-                return song.id === fav.song_id;
-              }
-            );
-          }
-          let favId;
-          if (answer.length) {
-            favId = answer[0].id;
-          }
-          //For Favs above
-
-          //For comments below
-          let filteredCommentsArrObj = [];
-          if (this.props.allComments) {
-            filteredCommentsArrObj = Object.values(
-              this.props.allComments
-            ).filter(comment => comment.song_id === song.id);
-          }
-
-          let filteredCommentsMapped;
-          if (filteredCommentsArrObj.length) {
-            filteredCommentsMapped = filteredCommentsArrObj.map(comment => {
-              return (
-                <div className="commentsContainerDiv">
-                  <h3>{comment.user_id}</h3>
-                  <p>{comment.comment_body}</p>
-                </div>
-              );
-            });
-          }
-          //For comments above
-
           return (
-            <div className="songsMappedDiv" key={song.id}>
-              <h1>Title: {song.title}</h1>
-              <img src={song.img_url} alt="" />
-              <h2>
-                Favorited {song.favorited_count}{" "}
-                {song.favorited_count === 1 ? "time" : "times"}
-              </h2>
-              {/*Map all users to this component and use user_id to get the username*/}
-              <h2>
-                User's username HERE!{" "}
-                <Link to={"/profile"}>{song.user_id}</Link>
-              </h2>
-
-              {favId ? (
-                <button onClick={() => this.deleteFavorite(favId)}>
-                  Unfavorite
-                </button>
-              ) : (
-                <button onClick={() => this.addFavorite(song.id)}>
-                  Favorite
-                </button>
-              )}
-              <div className="commentsMainDiv">
-                {filteredCommentsMapped === undefined
-                  ? null
-                  : filteredCommentsMapped}
-              </div>
-              <form
-                className="commentForm"
-                onSubmit={this.handleCommentInputSubmit}
-              >
-                <input
-                  name="commentInput"
-                  type="text"
-                  onChange={this.handleChange}
-                />
-                <button type="submit">Add Comment</button>
-              </form>
-            </div>
+            <SongDisplay
+              title={song.title}
+              img_url={song.img_url}
+              favorited_count={song.favorited_count}
+              user_id={song.user_id}
+              song_id={song.id}
+              deleteFavorite={this.deleteFavorite}
+              addFavorite={this.addFavorite}
+              allFavoritesForUser={this.props.allFavoritesForUser}
+              allComments={this.props.allComments}
+              key={song.id}
+            />
           );
         });
     }
@@ -216,18 +150,20 @@ class Songs extends React.Component {
     return (
       <div className="songsWrapper">
         <h1>SONGS PAGE</h1>
-        {this.state.notFound
-          ? "No Results Found.  Please search for another song."
-          : null}
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input
-            name="searchQuery"
-            type="text"
-            value={this.state.searchQuery}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Search By Title</button>
-        </form>
+        <div className="searchByTitleForm">
+          {this.state.notFound
+            ? "No Results Found.  Please search for another song."
+            : null}
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <input
+              name="searchQuery"
+              type="text"
+              value={this.state.searchQuery}
+              onChange={this.handleChange}
+            />
+            <button type="submit">Search By Title</button>
+          </form>
+        </div>
         {this.state.searchResults.length
           ? this.state.searchResults
           : songsMapped}
