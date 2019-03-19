@@ -108,7 +108,7 @@ class Songs extends React.Component {
   };
 
   addFavorite = async songId => {
-    //user default to 1
+    //user default is user 1
 
     await axios.post("/api/favorites", { user_id: 1, song_id: +songId });
     this.props.getAllSongs();
@@ -118,8 +118,6 @@ class Songs extends React.Component {
     });
     this.handleSubmit();
   };
-
-  handleFavoriteInSearchView = () => {};
 
   render() {
     console.log(this.state);
