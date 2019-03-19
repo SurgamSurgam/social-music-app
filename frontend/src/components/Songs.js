@@ -7,17 +7,19 @@ class Songs extends React.Component {
     searchQuery: "",
     searchResults: [],
     notFound: false,
-    favToggle: false
+    favToggle: false,
+    commentInput: ""
   };
 
   componentDidMount() {
     this.props.getAllSongs();
     this.props.getAllFavoritesForOneUser();
+    this.props.getAllComments();
   }
 
   handleChange = e => {
     this.setState({
-      searchQuery: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
@@ -119,6 +121,10 @@ class Songs extends React.Component {
     this.handleSubmit();
   };
 
+  handleCommentInputSubmit = e => {
+    e.preventDefault();
+    console.log("submitted my comment");
+  };
   render() {
     console.log(this.state);
 
@@ -127,8 +133,8 @@ class Songs extends React.Component {
       songsMapped = Object.values(this.props.allSongs)
         .reverse()
         .map(song => {
+          //For favs below----
           let answer = [];
-
           if (this.props.allFavoritesForUser) {
             answer = Object.values(this.props.allFavoritesForUser).filter(
               fav => {
@@ -140,6 +146,29 @@ class Songs extends React.Component {
           if (answer.length) {
             favId = answer[0].id;
           }
+          //For Favs above
+
+          //For comments below
+          let filteredCommentsArrObj = [];
+          if (this.props.allComments) {
+            filteredCommentsArrObj = Object.values(
+              this.props.allComments
+            ).filter(comment => comment.song_id === song.id);
+          }
+
+          let filteredCommentsMapped;
+          if (filteredCommentsArrObj.length) {
+            filteredCommentsMapped = filteredCommentsArrObj.map(comment => {
+              debugger;
+              return (
+                <div className="commentsContainerDiv">
+                  <h3>{comment.user_id}</h3>
+                  <p>{comment.comment_body}</p>
+                </div>
+              );
+            });
+          }
+          //For comments above
 
           return (
             <div className="songsMappedDiv" key={song.id}>
@@ -164,6 +193,23 @@ class Songs extends React.Component {
                   Favorite
                 </button>
               )}
+              <div className="commentsMainDiv">
+                {filteredCommentsMapped === undefined
+                  ? null
+                  : filteredCommentsMapped}
+              </div>
+              <form
+                className="commentForm"
+                onSubmit={this.handleCommentInputSubmit}
+              >
+                <input
+                  name="commentInput"
+                  type="text"
+                  value={this.state.commentInput}
+                  onChange={this.handleChange}
+                />
+                <button type="submit">Add Comment</button>
+              </form>
             </div>
           );
         });
@@ -177,6 +223,7 @@ class Songs extends React.Component {
           : null}
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input
+            name="searchQuery"
             type="text"
             value={this.state.searchQuery}
             onChange={this.handleChange}
