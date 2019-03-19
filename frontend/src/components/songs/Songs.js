@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
 import SongDisplay from "./SongDisplay.js";
 
 class Songs extends React.Component {
   state = {
     searchQuery: "",
+    searchQueryCopyForFiltering: "",
     searchResults: [],
     notFound: false,
     favToggle: false,
@@ -20,7 +21,9 @@ class Songs extends React.Component {
 
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      searchQueryCopyForFiltering: e.target.value,
+      isSubmitted: false
     });
   };
 
@@ -29,76 +32,88 @@ class Songs extends React.Component {
       e.preventDefault();
     }
 
-    const { searchQuery } = this.state;
-
-    let filteredSongs = Object.values(this.props.allSongs).filter(song => {
-      return song.title.toLowerCase().includes(searchQuery.toLowerCase());
-    });
-
-    if (filteredSongs.length && this.state.searchQuery) {
-      let mappedSearchedResults = this.mapSearchResults(filteredSongs);
-
+    //resets back to all songs is search is empty and no searchResults found
+    if (!this.state.searchQuery && !this.state.searchResults.length) {
       this.setState({
-        searchResults: mappedSearchedResults,
-        searchQuery: "",
-        notFound: false
-      });
-    } else if (this.state.favToggle) {
-      this.setState({
-        notFound: false,
-        searchQuery: "",
-        searchResults: [],
-        favToggle: false
+        isSubmitted: false
       });
     } else {
       this.setState({
-        notFound: true,
-        searchQuery: "",
-        searchResults: []
+        isSubmitted: true,
+        searchQuery: ""
       });
     }
+
+    // const { searchQuery } = this.state;
+    //
+    // let filteredSongs = Object.values(this.props.allSongs).filter(song => {
+    //   return song.title.toLowerCase().includes(searchQuery.toLowerCase());
+    // });
+    //
+    // if (filteredSongs.length && this.state.searchQuery) {
+    //   let mappedSearchedResults = this.mapSearchResults(filteredSongs);
+    //
+    //   this.setState({
+    //     searchResults: mappedSearchedResults,
+    //     searchQuery: "",
+    //     notFound: false
+    //   });
+    // } else if (this.state.favToggle) {
+    //   this.setState({
+    //     notFound: false,
+    //     searchQuery: "",
+    //     searchResults: [],
+    //     favToggle: false
+    //   });
+    // } else {
+    //   this.setState({
+    //     notFound: true,
+    //     searchQuery: "",
+    //     searchResults: []
+    //   });
+    // }
   };
 
-  mapSearchResults = results => {
-    let searchResultsMapped = Object.values(results)
-      .reverse()
-      .map(song => {
-        let answer = [];
-        if (this.props.allFavoritesForUser) {
-          answer = Object.values(this.props.allFavoritesForUser).filter(fav => {
-            return song.id === fav.song_id;
-          });
-        }
-        let favId;
-        if (answer.length) {
-          favId = answer[0].id;
-        }
-        return (
-          <div className="songsMappedDiv" key={song.id}>
-            <h1>Title: {song.title}</h1>
-            <img src={song.img_url} alt="" />
-            <h2>
-              Favorited {song.favorited_count}{" "}
-              {song.favorited_count === 1 ? "time" : "times"}
-            </h2>
-            {/*Map all users to this component and use user_id to get the username*/}
-            <h2>
-              User's username HERE! <Link to={"/profile"}>{song.user_id}</Link>
-            </h2>
-            {favId ? (
-              <button onClick={() => this.deleteFavorite(favId)}>
-                Unfavorite
-              </button>
-            ) : (
-              <button onClick={() => this.addFavorite(song.id)}>
-                Favorite
-              </button>
-            )}
-          </div>
-        );
-      });
-    return searchResultsMapped;
-  };
+  // mapSearchResults = results => {
+  //   let searchResultsMapped = Object.values(results)
+  //     .reverse()
+  //     .map(song => {
+  //       let answer = [];
+  //       if (this.props.allFavoritesForUser) {
+  //         answer = Object.values(this.props.allFavoritesForUser).filter(fav => {
+  //           return song.id === fav.song_id;
+  //         });
+  //       }
+  //       let favId;
+  //       if (answer.length) {
+  //         favId = answer[0].id;
+  //       }
+  //       return (
+  //         <div className="songsMappedDiv" key={song.id}>
+  //           <h1>Title: {song.title}</h1>
+  //           <img src={song.img_url} alt="" />
+  //           <h2>
+  //             Favorited {song.favorited_count}{" "}
+  //             {song.favorited_count === 1 ? "time" : "times"}
+  //           </h2>
+  //           {/*Map all users to this component and use user_id to get the username*/}
+  //           <h2>
+  //             User's username HERE! <Link to={"/profile"}>{song.user_id}</Link>
+  //           </h2>
+  //           {favId ? (
+  //             <button onClick={() => this.deleteFavorite(favId)}>
+  //               Unfavorite
+  //             </button>
+  //           ) : (
+  //             <button onClick={() => this.addFavorite(song.id)}>
+  //               Favorite
+  //             </button>
+  //           )}
+  //         </div>
+  //       );
+  //     });
+  //   return searchResultsMapped;
+  // };
 
   deleteFavorite = async favId => {
     await axios.delete(`/api/favorites/${+favId}`);
@@ -123,8 +138,44 @@ class Songs extends React.Component {
   };
 
   render() {
+    console.log(this.state);
     let songsMapped;
-    if (this.props.allSongs) {
+
+    if (this.props.allSongs && this.state.isSubmitted) {
+      let filteredSongs = Object.values(this.props.allSongs).filter(song => {
+        return song.title
+          .toLowerCase()
+          .includes(this.state.searchQueryCopyForFiltering.toLowerCase());
+      });
+
+      if (filteredSongs.length && this.state.searchQueryCopyForFiltering) {
+        songsMapped = Object.values(filteredSongs)
+          .reverse()
+          .map(song => {
+            return (
+              <SongDisplay
+                title={song.title}
+                img_url={song.img_url}
+                favorited_count={song.favorited_count}
+                user_id={song.user_id}
+                song_id={song.id}
+                deleteFavorite={this.deleteFavorite}
+                addFavorite={this.addFavorite}
+                allFavoritesForUser={this.props.allFavoritesForUser}
+                allComments={this.props.allComments}
+                getAllComments={this.props.getAllComments}
+                key={song.id}
+              />
+            );
+          });
+      } else {
+        songsMapped = (
+          <div className="errorMessage">
+            <h1>No Results Found. Please search for another song.</h1>
+          </div>
+        );
+      }
+    } else if (this.props.allSongs) {
       songsMapped = Object.values(this.props.allSongs)
         .reverse()
         .map(song => {
@@ -163,9 +214,7 @@ class Songs extends React.Component {
             <button type="submit">Search By Title</button>
           </form>
         </div>
-        {this.state.searchResults.length
-          ? this.state.searchResults
-          : songsMapped}
+        {songsMapped}
       </div>
     );
   }
