@@ -36,7 +36,7 @@ class CommentsDisplay extends React.Component {
     if (filteredCommentsArrObj.length) {
       filteredCommentsMapped = filteredCommentsArrObj.map(comment => {
         return (
-          <div className="commentsContainerDiv" key={comment.id}>
+          <div className="commentsInnerDiv" key={comment.id}>
             <Link to={"/profile"}>
               <h3>{comment.user_id}</h3>
             </Link>
@@ -47,7 +47,7 @@ class CommentsDisplay extends React.Component {
     }
 
     return (
-      <div>
+      <div className="commentsWrapper">
         <div className="commentsMainDiv">
           {filteredCommentsMapped === undefined ? null : filteredCommentsMapped}
         </div>

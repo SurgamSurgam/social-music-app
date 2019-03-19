@@ -1,4 +1,4 @@
-import Songs from "../components/Songs.js";
+import Songs from "../components/songs/Songs.js";
 import { connect } from "react-redux";
 import { getAllSongs } from "../actions/SongsActions.js";
 import { getAllComments } from "../actions/SongsActions.js";
