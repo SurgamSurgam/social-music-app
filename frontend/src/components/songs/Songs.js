@@ -8,7 +8,8 @@ class Songs extends React.Component {
     searchQuery: "",
     searchResults: [],
     notFound: false,
-    favToggle: false
+    favToggle: false,
+    isSubmitted: false
   };
 
   componentDidMount() {
