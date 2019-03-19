@@ -8,8 +8,7 @@ class Songs extends React.Component {
     searchQuery: "",
     searchResults: [],
     notFound: false,
-    favToggle: false,
-    commentInput: ""
+    favToggle: false
   };
 
   componentDidMount() {
@@ -123,8 +122,6 @@ class Songs extends React.Component {
   };
 
   render() {
-    console.log(this.state);
-
     let songsMapped;
     if (this.props.allSongs) {
       songsMapped = Object.values(this.props.allSongs)
@@ -141,6 +138,7 @@ class Songs extends React.Component {
               addFavorite={this.addFavorite}
               allFavoritesForUser={this.props.allFavoritesForUser}
               allComments={this.props.allComments}
+              getAllComments={this.props.getAllComments}
               key={song.id}
             />
           );

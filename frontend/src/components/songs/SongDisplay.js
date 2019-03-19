@@ -29,6 +29,7 @@ class SongDisplay extends React.Component {
         <CommentsDisplay
           allComments={this.props.allComments}
           song_id={this.props.song_id}
+          getAllComments={this.props.getAllComments}
         />
       </div>
     );

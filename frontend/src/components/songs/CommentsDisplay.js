@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
+import axios from "axios";
 
 class CommentsDisplay extends React.Component {
   constructor(props) {
@@ -14,16 +15,25 @@ class CommentsDisplay extends React.Component {
     });
   };
 
-  handleCommentInputSubmit = e => {
+  // req.body.comment_body, +req.body.user_id, +req.body.song_id
+  handleCommentInputSubmit = async (e, songId) => {
+    //default user is 1
     e.preventDefault();
-    console.log(`submitted my comment ${this.state.commentInput}`);
-    this.setState({
+
+    await axios.post("/api/comments", {
+      comment_body: this.state.commentInput,
+      user_id: 1,
+      song_id: +songId
+    });
+
+    await this.setState({
       commentInput: ""
     });
+
+    this.props.getAllComments();
   };
 
   render() {
-    console.log("CommentsDisplay Component: ", this.state);
     //For comments below
     let filteredCommentsArrObj = [];
     if (this.props.allComments) {
@@ -51,10 +61,16 @@ class CommentsDisplay extends React.Component {
         <div className="commentsMainDiv">
           {filteredCommentsMapped === undefined ? null : filteredCommentsMapped}
         </div>
-        <form className="commentForm" onSubmit={this.handleCommentInputSubmit}>
+        <form
+          className="commentForm"
+          onSubmit={e => {
+            this.handleCommentInputSubmit(e, this.props.song_id);
+          }}
+        >
           <input
             name="commentInput"
             type="text"
+            value={this.state.commentInput}
             onChange={this.handleCommentInputChange}
           />
           <button type="submit">Add Comment</button>
