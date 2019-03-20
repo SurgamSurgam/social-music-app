@@ -3,6 +3,7 @@ import SongDisplay from "./songs/SongDisplay.js";
 
 class Popularity extends React.Component {
   componentDidMount() {
+    debugger;
     this.props.getAllSongs();
     this.props.getAllFavoritesForOneUser();
     this.props.getAllComments();
@@ -18,8 +19,6 @@ class Popularity extends React.Component {
             favorited_count={song.favorited_count}
             user_id={song.user_id}
             song_id={song.id}
-            deleteFavorite={this.deleteFavorite}
-            addFavorite={this.addFavorite}
             allFavoritesForUser={this.props.allFavoritesForUser}
             allComments={this.props.allComments}
             getAllComments={this.props.getAllComments}
