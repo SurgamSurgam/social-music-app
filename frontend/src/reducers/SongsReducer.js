@@ -1,5 +1,6 @@
 import { RECEIVE_ALL_SONGS } from "../actions/actionTypes.js";
 import { RECEIVE_ALL_COMMENTS } from "../actions/actionTypes.js";
+import { RECEIVE_ALL_SONGS_FOR_GENRE } from "../actions/actionTypes.js";
 import merge from "lodash/merge";
 
 const normalizeData = arr => {
@@ -26,6 +27,13 @@ const SongsReducer = (oldState = [], action) => {
       return {
         ...newState1,
         allComments: normalizeData(action.comments)
+      };
+    case RECEIVE_ALL_SONGS_FOR_GENRE:
+      let newState2 = merge({}, oldState);
+
+      return {
+        ...newState2,
+        allSongsByGenre: action.songsbyGenre
       };
     default:
       return oldState;

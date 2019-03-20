@@ -21,10 +21,12 @@ class Genre extends React.Component {
     });
   };
 
-  handleFormSubmit = e => {
+  handleFormSubmit = async e => {
     e.preventDefault();
 
-    this.setState({
+    await this.props.getAllSongsForOneGenre(+this.state.selectedGenre);
+
+    await this.setState({
       formSubmitted: true
     });
   };
@@ -36,7 +38,6 @@ class Genre extends React.Component {
     let genreList = [];
     if (this.props.allGenres) {
       genreList = Object.values(this.props.allGenres).map((genre, i) => {
-        debugger;
         return (
           <option key={i + 1} value={genre.id}>
             {genre.genre_name}
@@ -46,7 +47,27 @@ class Genre extends React.Component {
     }
 
     let songsMapped;
-    if (this.props.allSongs) {
+
+    if (formSubmitted && this.props.allSongsByGenre) {
+      debugger;
+      songsMapped = Object.values(this.props.allSongsByGenre)
+        .reverse()
+        .map(song => {
+          return (
+            <SongDisplay
+              title={song.title}
+              img_url={song.img_url}
+              favorited_count={song.favorited_count}
+              user_id={song.user_id}
+              song_id={song.id}
+              allFavoritesForUser={this.props.allFavoritesForUser}
+              allComments={this.props.allComments}
+              getAllComments={this.props.getAllComments}
+              key={song.id}
+            />
+          );
+        });
+    } else if (this.props.allSongs) {
       songsMapped = Object.values(this.props.allSongs)
         .reverse()
         .map(song => {
