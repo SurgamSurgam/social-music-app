@@ -15,7 +15,6 @@ class CommentsDisplay extends React.Component {
     });
   };
 
-  // req.body.comment_body, +req.body.user_id, +req.body.song_id
   handleCommentInputSubmit = async (e, songId) => {
     //default user is 1
     e.preventDefault();
@@ -34,7 +33,6 @@ class CommentsDisplay extends React.Component {
   };
 
   render() {
-    //For comments below
     let filteredCommentsArrObj = [];
     if (this.props.allComments) {
       filteredCommentsArrObj = Object.values(this.props.allComments).filter(
