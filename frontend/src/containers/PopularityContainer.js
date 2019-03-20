@@ -1,13 +1,12 @@
-import Songs from "../components/songs/Songs.js";
+import Popularity from "../components/Popularity.js";
 import { connect } from "react-redux";
 import { getAllSongs } from "../actions/SongsActions.js";
 import { getAllComments } from "../actions/SongsActions.js";
 import { getAllFavoritesForOneUser } from "../actions/FavoritesActions.js";
 
 const mapStateToProps = state => {
-  debugger;
   return {
-    allSongs: state.songs.allSongs,
+    allSongsByPopularity: state.songs.allSongsByPopularity,
     allFavoritesForUser: state.favorites.allFavoritesForUser,
     allComments: state.songs.allComments
   };
@@ -24,4 +23,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Songs);
+)(Popularity);
