@@ -11,10 +11,7 @@ class SongDisplay extends React.Component {
         <div className="songsTitleImgFavsUserDiv">
           <h1>Title: {this.props.title}</h1>
           <img src={this.props.img_url} alt="" />
-          <h2>
-            Favorited {this.props.favorited_count}{" "}
-            {this.props.favorited_count === 1 ? "time" : "times"}
-          </h2>
+
           <h2>
             User's username HERE!{" "}
             <Link to={"/profile"}>{this.props.user_id}</Link>
@@ -23,8 +20,7 @@ class SongDisplay extends React.Component {
         <FavoriteButtonDisplay
           allFavoritesForUser={this.props.allFavoritesForUser}
           song_id={this.props.song_id}
-          deleteFavorite={this.props.deleteFavorite}
-          addFavorite={this.props.addFavorite}
+          favorited_count={this.props.favorited_count}
         />
         <CommentsDisplay
           allComments={this.props.allComments}

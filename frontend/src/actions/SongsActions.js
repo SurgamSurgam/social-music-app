@@ -13,15 +13,12 @@ export const receiveAllComments = comments => {
 
 //funcs
 export const getAllSongs = () => dispatch => {
-  debugger;
   return axios.get("/api/songs/").then(songs => {
-    debugger;
     return dispatch(receiveAllSongs(songs.data.body));
   });
 };
 
 export const getAllComments = () => dispatch => {
-  debugger;
   return axios.get("/api/comments/").then(comments => {
     return dispatch(receiveAllComments(comments.data.body));
   });

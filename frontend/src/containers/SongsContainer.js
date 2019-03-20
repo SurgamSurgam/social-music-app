@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import { getAllSongs } from "../actions/SongsActions.js";
 import { getAllComments } from "../actions/SongsActions.js";
 import { getAllFavoritesForOneUser } from "../actions/FavoritesActions.js";
+import { addFavorite } from "../actions/FavoritesActions.js";
+import { deleteFavorite } from "../actions/FavoritesActions.js";
 
 const mapStateToProps = state => {
-  debugger;
   return {
     allSongs: state.songs.allSongs,
     allFavoritesForUser: state.favorites.allFavoritesForUser,
@@ -17,7 +18,9 @@ const mapDispatchToProps = dispatch => {
   return {
     getAllSongs: () => dispatch(getAllSongs()),
     getAllFavoritesForOneUser: () => dispatch(getAllFavoritesForOneUser()),
-    getAllComments: () => dispatch(getAllComments())
+    getAllComments: () => dispatch(getAllComments()),
+    addFavorite: songId => dispatch(addFavorite(songId)),
+    deleteFavorite: favId => dispatch(deleteFavorite(favId))
   };
 };
 

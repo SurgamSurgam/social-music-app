@@ -43,18 +43,18 @@ class Songs extends React.Component {
     }
   };
 
-  deleteFavorite = async favId => {
-    await axios.delete(`/api/favorites/${+favId}`);
-    this.props.getAllSongs();
-    this.props.getAllFavoritesForOneUser();
-  };
-
-  addFavorite = async songId => {
-    //user default is user 1
-    await axios.post("/api/favorites", { user_id: 1, song_id: +songId });
-    this.props.getAllSongs();
-    this.props.getAllFavoritesForOneUser();
-  };
+  // deleteFavorite = async favId => {
+  //   await axios.delete(`/api/favorites/${+favId}`);
+  //   this.props.getAllSongs();
+  //   this.props.getAllFavoritesForOneUser();
+  // };
+  //
+  // addFavorite = async songId => {
+  //   //user default is user 1
+  //   await axios.post("/api/favorites", { user_id: 1, song_id: +songId });
+  //   this.props.getAllSongs();
+  //   this.props.getAllFavoritesForOneUser();
+  // };
 
   render() {
     let songsMapped;
@@ -77,8 +77,6 @@ class Songs extends React.Component {
                 favorited_count={song.favorited_count}
                 user_id={song.user_id}
                 song_id={song.id}
-                deleteFavorite={this.deleteFavorite}
-                addFavorite={this.addFavorite}
                 allFavoritesForUser={this.props.allFavoritesForUser}
                 allComments={this.props.allComments}
                 getAllComments={this.props.getAllComments}
@@ -104,8 +102,6 @@ class Songs extends React.Component {
               favorited_count={song.favorited_count}
               user_id={song.user_id}
               song_id={song.id}
-              deleteFavorite={this.deleteFavorite}
-              addFavorite={this.addFavorite}
               allFavoritesForUser={this.props.allFavoritesForUser}
               allComments={this.props.allComments}
               getAllComments={this.props.getAllComments}

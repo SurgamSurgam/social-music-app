@@ -1,4 +1,6 @@
 import { RECEIVE_ALL_FAVORITES_FOR_USER } from "../actions/actionTypes.js";
+import { DELETE_FAVORITE } from "../actions/actionTypes.js";
+import { ADD_FAVORITE } from "../actions/actionTypes.js";
 import merge from "lodash/merge";
 
 const normalizeData = arr => {
@@ -18,6 +20,12 @@ const FavoritesReducer = (oldState = [], action) => {
         ...newState,
         allFavoritesForUser: normalizeData(action.favorites)
       };
+    case DELETE_FAVORITE:
+      debugger;
+      let newState1 = merge({}, oldState);
+      debugger;
+      delete newState1.allFavoritesForUser[action.favId];
+      return newState1;
     default:
       return oldState;
   }

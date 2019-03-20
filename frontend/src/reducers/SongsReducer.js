@@ -15,7 +15,7 @@ const SongsReducer = (oldState = [], action) => {
   switch (action.type) {
     case RECEIVE_ALL_SONGS:
       let newState = merge({}, oldState);
-      debugger;
+
       return {
         ...newState,
         allSongs: normalizeData(action.songs),
