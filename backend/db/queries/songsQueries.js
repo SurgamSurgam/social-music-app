@@ -1,5 +1,7 @@
 const db = require("../index.js");
 
+// so the route below looks sorted by favorites. How do you sort them by post time?
+
 const getAllSongs = (req, res, next) => {
   db.any(
     "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CAST(COUNT(*) AS INT) AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id GROUP BY favorites.song_id, songs.id, title, img_url, songs.user_id, songs.genre_id HAVING COUNT(*) >= 0 ORDER BY favorited_count DESC"
