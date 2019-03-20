@@ -8,7 +8,7 @@ export const receiveAllFavoritesForUserId1 = favorites => {
 };
 
 export const getAllFavoritesForOneUser = () => dispatch => {
-  return axios.get("api/favorites/users/1").then(favorites => {
+  return axios.get("/api/favorites/users/1/").then(favorites => {
     return dispatch(receiveAllFavoritesForUserId1(favorites.data.body));
   });
 };
