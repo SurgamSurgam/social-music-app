@@ -2,13 +2,49 @@ import React from "react";
 import SongDisplay from "./songs/SongDisplay.js";
 
 class Genre extends React.Component {
+  state = {
+    selectedGenre: "",
+    formSubmitted: false
+  };
+
   componentDidMount() {
-    debugger;
+    this.props.getAllGenres();
     this.props.getAllSongs();
     this.props.getAllFavoritesForOneUser();
     this.props.getAllComments();
   }
+
+  handleSelect = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+      formSubmitted: false
+    });
+  };
+
+  handleFormSubmit = e => {
+    e.preventDefault();
+
+    this.setState({
+      formSubmitted: true
+    });
+  };
+
   render() {
+    console.log(this.state);
+    const { selectedGenre, formSubmitted } = this.state;
+
+    let genreList = [];
+    if (this.props.allGenres) {
+      genreList = Object.values(this.props.allGenres).map((genre, i) => {
+        debugger;
+        return (
+          <option key={i + 1} value={genre.id}>
+            {genre.genre_name}
+          </option>
+        );
+      });
+    }
+
     let songsMapped;
     if (this.props.allSongs) {
       songsMapped = Object.values(this.props.allSongs)
@@ -33,6 +69,15 @@ class Genre extends React.Component {
     return (
       <div className="genreWrapper">
         <h1>GENRE PAGE</h1>
+        <form onSubmit={this.handleFormSubmit}>
+          <select name="selectedGenre" onChange={this.handleSelect}>
+            <option key="0" value="">
+              {" "}
+            </option>
+            {genreList}
+          </select>
+          <button type="submit">Search By Genre</button>
+        </form>
         {songsMapped}
       </div>
     );
