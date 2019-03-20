@@ -6,7 +6,6 @@ class Popularity extends React.Component {
     this.props.getAllSongs();
     this.props.getAllFavoritesForOneUser();
     this.props.getAllComments();
-    debugger;
   }
   render() {
     let songsMapped;

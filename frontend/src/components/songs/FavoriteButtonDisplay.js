@@ -14,19 +14,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-class FavoriteButtonDisplay extends React.Component
-// = ({
-//   allFavoritesForUser,
-//   song_id,
-//   deleteFavorite,
-//   addFavorite
-// }) =>
-{
-  componentDidMount() {}
-  // constructor(props) {
-  //   super(props);
-  // }
-  //For favs below----
+class FavoriteButtonDisplay extends React.Component {
   render() {
     let answer = [];
     if (this.props.allFavoritesForUser) {
@@ -38,7 +26,6 @@ class FavoriteButtonDisplay extends React.Component
     if (answer.length) {
       favId = answer[0].id;
     }
-    //For Favs above
 
     return (
       <div>
@@ -72,7 +59,6 @@ class FavoriteButtonDisplay extends React.Component
   }
 }
 
-// export default FavoriteButtonDisplay;
 export default connect(
   null,
   mapDispatchToProps

@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import SongDisplay from "./SongDisplay.js";
 
 class Songs extends React.Component {
@@ -7,7 +6,6 @@ class Songs extends React.Component {
     searchQuery: "",
     searchQueryCopyForFiltering: "",
     searchResults: [],
-    favToggle: false,
     isSubmitted: false
   };
 
@@ -42,19 +40,6 @@ class Songs extends React.Component {
       });
     }
   };
-
-  // deleteFavorite = async favId => {
-  //   await axios.delete(`/api/favorites/${+favId}`);
-  //   this.props.getAllSongs();
-  //   this.props.getAllFavoritesForOneUser();
-  // };
-  //
-  // addFavorite = async songId => {
-  //   //user default is user 1
-  //   await axios.post("/api/favorites", { user_id: 1, song_id: +songId });
-  //   this.props.getAllSongs();
-  //   this.props.getAllFavoritesForOneUser();
-  // };
 
   render() {
     let songsMapped;
