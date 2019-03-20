@@ -42,23 +42,6 @@ const getAllFavoritesForOneUser = (req, res, next) => {
     });
 };
 
-// const getSingleSong = (req, res, next) => {
-//   db.one(
-//     "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CAST(COUNT(*) AS INT) AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id  WHERE songs.id=$1 GROUP BY favorites.song_id, songs.id, title, img_url, songs.user_id, songs.genre_id HAVING COUNT(*) >= 0 ORDER BY favorited_count DESC",
-//     [+req.params.song_id]
-//   )
-//     .then(song => {
-//       res.status(200).json({
-//         status: "success",
-//         message: "Got one song - with favorites count",
-//         body: song
-//       });
-//     })
-//     .catch(error => {
-//       next(error);
-//     });
-// };
-
 const addFavorite = (req, res, next) => {
   db.none("INSERT INTO favorites(user_id, song_id) VALUES ($1, $2)", [
     +req.body.user_id,
