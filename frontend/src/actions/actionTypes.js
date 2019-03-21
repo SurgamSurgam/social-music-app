@@ -10,3 +10,7 @@ export const ADD_FAVORITE = "ADD_FAVORITE";
 
 //Genres
 export const RECEIVE_ALL_GENRES = "RECEIVE_ALL_GENRES";
+
+//Profile
+export const RECEIVE_ALL_SONGS_POSTED_BY_USER =
+  "RECEIVE_ALL_SONGS_POSTED_BY_USER";
