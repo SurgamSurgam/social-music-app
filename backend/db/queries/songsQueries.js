@@ -2,7 +2,7 @@ const db = require("../index.js");
 
 const getAllSongs = (req, res, next) => {
   db.any(
-    "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN 0 ELSE COUNT(*) END AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id GROUP BY songs.id, title, img_url, songs.user_id, songs.genre_id, favorites.song_id ORDER BY favorited_count DESC"
+    "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN CAST(0 AS INT) ELSE CAST(COUNT(*) AS INT) END AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id GROUP BY songs.id, title, img_url, songs.user_id, songs.genre_id, favorites.song_id ORDER BY favorited_count DESC"
   )
     .then(songs => {
       res.status(200).json({
@@ -18,7 +18,7 @@ const getAllSongs = (req, res, next) => {
 
 const getAllSongsForOneGenre = (req, res, next) => {
   db.any(
-    "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN 0 ELSE COUNT(*) END AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id WHERE genre_id=$1 GROUP BY songs.id, title, img_url, songs.user_id, songs.genre_id, favorites.song_id ORDER BY favorited_count DESC",
+    "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN CAST(0 AS INT) ELSE CAST(COUNT(*) AS INT) END AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id WHERE genre_id=$1 GROUP BY songs.id, title, img_url, songs.user_id, songs.genre_id, favorites.song_id ORDER BY favorited_count DESC",
     [+req.params.genre_id]
   )
     .then(songs => {
@@ -35,7 +35,7 @@ const getAllSongsForOneGenre = (req, res, next) => {
 
 const getAllSongsPostedByOneUser = (req, res, next) => {
   db.any(
-    "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN 0 ELSE COUNT(*) END AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id WHERE songs.user_id=$1 GROUP BY songs.id, title, img_url, songs.user_id, songs.genre_id, favorites.song_id ORDER BY favorited_count DESC",
+    "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN CAST(0 AS INT) ELSE CAST(COUNT(*) AS INT) END AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id WHERE songs.user_id=$1 GROUP BY songs.id, title, img_url, songs.user_id, songs.genre_id, favorites.song_id ORDER BY favorited_count DESC",
     [+req.params.user_id]
   )
     .then(songs => {
@@ -53,7 +53,7 @@ const getAllSongsPostedByOneUser = (req, res, next) => {
 
 const getSingleSong = (req, res, next) => {
   db.one(
-    "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN 0 ELSE COUNT(*) END AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id WHERE songs.id=$1 GROUP BY songs.id, title, img_url, songs.user_id, songs.genre_id, favorites.song_id ORDER BY favorited_count DESC",
+    "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN CAST(0 AS INT) ELSE CAST(COUNT(*) AS INT) END AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id WHERE songs.id=$1 GROUP BY songs.id, title, img_url, songs.user_id, songs.genre_id, favorites.song_id ORDER BY favorited_count DESC",
     [+req.params.song_id]
   )
     .then(song => {

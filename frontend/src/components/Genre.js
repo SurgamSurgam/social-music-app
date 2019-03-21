@@ -58,6 +58,7 @@ class Genre extends React.Component {
       songsMapped = Object.values(this.props.allSongsByGenre)
         .reverse()
         .map(song => {
+          debugger;
           return (
             <SongDisplay
               title={song.title}
@@ -82,6 +83,7 @@ class Genre extends React.Component {
       songsMapped = Object.values(this.props.allSongs)
         .reverse()
         .map(song => {
+          debugger;
           return (
             <SongDisplay
               title={song.title}
