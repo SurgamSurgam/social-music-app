@@ -15,10 +15,16 @@ class Genre extends React.Component {
   }
 
   handleSelect = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-      formSubmitted: false
-    });
+    if (+e.target.value === 0) {
+      this.setState({
+        [e.target.name]: e.target.value,
+        formSubmitted: false
+      });
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value
+      });
+    }
   };
 
   handleFormSubmit = async e => {
@@ -48,8 +54,7 @@ class Genre extends React.Component {
 
     let songsMapped;
 
-    if (formSubmitted && this.props.allSongsByGenre) {
-      debugger;
+    if (formSubmitted && this.props.allSongsByGenre.length) {
       songsMapped = Object.values(this.props.allSongsByGenre)
         .reverse()
         .map(song => {
@@ -67,6 +72,12 @@ class Genre extends React.Component {
             />
           );
         });
+    } else if (formSubmitted && this.props.allSongsByGenre.length === 0) {
+      songsMapped = (
+        <div className="errorMessage">
+          <h1>No Results Found. Please select another genre.</h1>
+        </div>
+      );
     } else if (this.props.allSongs) {
       songsMapped = Object.values(this.props.allSongs)
         .reverse()
@@ -92,7 +103,7 @@ class Genre extends React.Component {
         <h1>GENRE PAGE</h1>
         <form onSubmit={this.handleFormSubmit}>
           <select name="selectedGenre" onChange={this.handleSelect}>
-            <option key="0" value="">
+            <option key="0" value="0">
               {" "}
             </option>
             {genreList}
