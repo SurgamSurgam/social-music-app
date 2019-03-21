@@ -4,13 +4,21 @@ import { addFavorite } from "../../actions/FavoritesActions.js";
 import { deleteFavorite } from "../../actions/FavoritesActions.js";
 import { getAllFavoritesForOneUser } from "../../actions/FavoritesActions.js";
 import { getAllSongs } from "../../actions/SongsActions.js";
+import { getAllSongsForOneGenre } from "../../actions/SongsActions.js";
+
+const mapStateToProps = state => {
+  return {
+    allSongsByGenre: state.songs.allSongsByGenre
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     getAllSongs: () => dispatch(getAllSongs()),
     getAllFavoritesForOneUser: () => dispatch(getAllFavoritesForOneUser()),
     addFavorite: songId => dispatch(addFavorite(songId)),
-    deleteFavorite: favId => dispatch(deleteFavorite(favId))
+    deleteFavorite: favId => dispatch(deleteFavorite(favId)),
+    getAllSongsForOneGenre: genreId => dispatch(getAllSongsForOneGenre(genreId))
   };
 };
 
@@ -26,7 +34,11 @@ class FavoriteButtonDisplay extends React.Component {
     if (answer.length) {
       favId = answer[0].id;
     }
-
+    //grabbing genreID to be able sync fav count
+    let genreId;
+    if (this.props.allSongsByGenre && this.props.allSongsByGenre.length) {
+      genreId = this.props.allSongsByGenre[0].genre_id;
+    }
     return (
       <div>
         <h2>
@@ -39,6 +51,10 @@ class FavoriteButtonDisplay extends React.Component {
               await this.props.deleteFavorite(favId);
               await this.props.getAllSongs();
               await this.props.getAllFavoritesForOneUser();
+              await this.props.getAllSongsForOneGenre(genreId);
+              if (genreId) {
+                await this.props.getAllSongsForOneGenre(genreId);
+              }
             }}
           >
             Unfavorite
@@ -49,6 +65,9 @@ class FavoriteButtonDisplay extends React.Component {
               await this.props.addFavorite(this.props.song_id);
               await this.props.getAllSongs();
               await this.props.getAllFavoritesForOneUser();
+              if (genreId) {
+                await this.props.getAllSongsForOneGenre(genreId);
+              }
             }}
           >
             Favorite
@@ -60,6 +79,6 @@ class FavoriteButtonDisplay extends React.Component {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(FavoriteButtonDisplay);
