@@ -3,7 +3,6 @@ import SongDisplay from "./songs/SongDisplay.js";
 
 class Popularity extends React.Component {
   componentDidMount() {
-    debugger;
     this.props.getAllSongs();
     this.props.getAllFavoritesForOneUser();
     this.props.getAllComments();

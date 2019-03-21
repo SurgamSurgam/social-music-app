@@ -39,7 +39,7 @@ class Genre extends React.Component {
 
   render() {
     console.log(this.state);
-    const { selectedGenre, formSubmitted } = this.state;
+    const { formSubmitted } = this.state;
 
     let genreList = [];
     if (this.props.allGenres) {
