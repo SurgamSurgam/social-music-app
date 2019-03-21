@@ -12,6 +12,7 @@ class Profile extends React.Component {
     this.props.getAllComments();
   }
   render() {
+    debugger;
     console.log(this.props);
     return <h1>PROFILE PAGE</h1>;
   }

@@ -35,7 +35,7 @@ const getAllSongsForOneGenre = (req, res, next) => {
 
 const getAllSongsPostedByOneUser = (req, res, next) => {
   db.any(
-    "SELECT songs.id, title, img_url, songs.user_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN CAST(0 AS INT) ELSE CAST(COUNT(*) AS INT) END AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id WHERE songs.user_id=$1 GROUP BY songs.id, title, img_url, songs.user_id, songs.genre_id, favorites.song_id ORDER BY favorited_count DESC",
+    "SELECT songs.id, title, img_url, songs.user_id, users.username, users.id AS users_serial_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN  CAST(0 AS INT) ELSE  CAST(COUNT(*) AS INT) END AS favorited_count FROM songs FULL OUTER JOIN favorites ON songs.id = favorites.song_id FULL OUTER JOIN users ON users.id = songs.user_id WHERE users.id=$1 GROUP BY songs.id, title, img_url, songs.user_id, users.id, users.username, songs.genre_id, favorites.song_id ORDER BY favorited_count DESC",
     [+req.params.user_id]
   )
     .then(songs => {
