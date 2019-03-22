@@ -38,16 +38,8 @@ class OtherProfiles extends React.Component {
   handleNewSongChange = e => {
     this.setState({
       [e.target.name]: e.target.value
-      // searchQueryCopyForFiltering: e.target.value,
-      // isSubmitted: false
     });
   };
-
-  // handleSelect = e => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   });
-  // };
 
   handleNewSongSubmit = e => {
     if (e) {
@@ -152,54 +144,6 @@ class OtherProfiles extends React.Component {
         );
       }
     }
-
-    // let genreList = [];
-    // if (this.props.allGenres) {
-    //   genreList = Object.values(this.props.allGenres).map((genre, i) => {
-    //     return (
-    //       <option key={i + 1} value={genre.id}>
-    //         {genre.genre_name}
-    //       </option>
-    //     );
-    //   });
-    // }
-    //
-    // let displayNewSongForm = (
-    //   <div className="newSongFormContainer">
-    //     <h2 className="newSongH2">Add New Song</h2>
-    //     <form
-    //       className="newSongForm"
-    //       onSubmit={this.handleNewSongSubmit.bind(this)}
-    //     >
-    //       <input
-    //         name="newSongTitle"
-    //         type="text"
-    //         value={this.state.newSongTitle}
-    //         onChange={this.handleNewSongChange}
-    //         placeholder="Title"
-    //         required
-    //       />
-    //       <input
-    //         name="newSongImgUrl"
-    //         type="text"
-    //         value={this.state.newSongImgUrl}
-    //         onChange={this.handleNewSongChange}
-    //         placeholder="Image URL"
-    //         required
-    //       />
-    //       <select
-    //         required
-    //         name="selectedGenre"
-    //         onChange={this.handleNewSongChange}
-    //       >
-    //         <option key="0" />
-    //         {genreList}
-    //       </select>
-    //       <button type="submit">Submit</button>
-    //     </form>
-    //   </div>
-    // );
-    // debugger;
     return (
       <div className="profileWrapper">
         <h1>OTHER PROFILES PAGE</h1>
@@ -226,7 +170,6 @@ class OtherProfiles extends React.Component {
             Favorited
           </button>
         </div>
-        {/*{isDisplayPostedView ? displayNewSongForm : null}*/}
         {songsMapped}
       </div>
     );

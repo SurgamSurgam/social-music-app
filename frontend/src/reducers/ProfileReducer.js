@@ -1,5 +1,6 @@
 import { RECEIVE_ALL_SONGS_POSTED_BY_USER } from "../actions/actionTypes.js";
 import { RECEIVE_PROFILE_VIEW_FOR_POSTED } from "../actions/actionTypes.js";
+import { RECEIVE_ALL_USERS } from "../actions/actionTypes.js";
 import merge from "lodash/merge";
 
 const normalizeData = arr => {
@@ -28,6 +29,12 @@ const ProfileReducer = (oldState = initState, action) => {
       return {
         ...newState1,
         profileViewForPosted: action.boolValue
+      };
+    case RECEIVE_ALL_USERS:
+      let newState2 = merge({}, oldState);
+      return {
+        ...newState2,
+        allUsers: action.users
       };
     default:
       return oldState;

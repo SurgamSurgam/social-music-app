@@ -2,8 +2,6 @@ import React from "react";
 import SongDisplay from "./songs/SongDisplay.js";
 import "./Profile.css";
 import axios from "axios";
-import OtherProfiles from "./OtherProfiles.js";
-import { Route, Switch } from "react-router-dom";
 
 class Profile extends React.Component {
   state = {
@@ -40,16 +38,8 @@ class Profile extends React.Component {
   handleNewSongChange = e => {
     this.setState({
       [e.target.name]: e.target.value
-      // searchQueryCopyForFiltering: e.target.value,
-      // isSubmitted: false
     });
   };
-
-  // handleSelect = e => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   });
-  // };
 
   handleNewSongSubmit = e => {
     if (e) {
@@ -202,15 +192,6 @@ class Profile extends React.Component {
       </div>
     );
 
-    // <Route
-    //   path="/profile/:id"
-    //   render={() => {
-    //     return <h1>OTHER PROFILES PAGE</h1>;
-    //   }}
-    // />
-    // <Switch>
-    // <Route path="/profile/:id" component={OtherProfiles} />
-    // </Switch>
     return (
       <div className="profileWrapper">
         <h1>PROFILE PAGE</h1>

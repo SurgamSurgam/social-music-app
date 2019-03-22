@@ -5,9 +5,11 @@ import { getAllComments } from "../actions/SongsActions.js";
 import { getAllFavoritesForOneUser } from "../actions/FavoritesActions.js";
 import { addFavorite } from "../actions/FavoritesActions.js";
 import { deleteFavorite } from "../actions/FavoritesActions.js";
+import { getAllUsers } from "../actions/ProfileActions.js";
 
 const mapStateToProps = state => {
   return {
+    allUsers: state.profile.allUsers,
     allSongs: state.songs.allSongs,
     allFavoritesForUser: state.favorites.allFavoritesForUser,
     allComments: state.songs.allComments
@@ -20,7 +22,8 @@ const mapDispatchToProps = dispatch => {
     getAllFavoritesForOneUser: () => dispatch(getAllFavoritesForOneUser()),
     getAllComments: () => dispatch(getAllComments()),
     addFavorite: songId => dispatch(addFavorite(songId)),
-    deleteFavorite: favId => dispatch(deleteFavorite(favId))
+    deleteFavorite: favId => dispatch(deleteFavorite(favId)),
+    getAllUsers: () => dispatch(getAllUsers())
   };
 };
 

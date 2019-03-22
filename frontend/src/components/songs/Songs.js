@@ -13,6 +13,7 @@ class Songs extends React.Component {
     this.props.getAllSongs();
     this.props.getAllFavoritesForOneUser();
     this.props.getAllComments();
+    this.props.getAllUsers();
   }
 
   handleChange = e => {
@@ -55,6 +56,14 @@ class Songs extends React.Component {
         songsMapped = Object.values(filteredSongs)
           .reverse()
           .map(song => {
+            // debugger;
+            // let changingUser = [];
+            // if (this.props.allUsers) {
+            //   console.log("SUP");
+            //   if (this.props.allUsers.length) {
+            //     console.log("BRO");
+            //   }
+            // }
             return (
               <SongDisplay
                 title={song.title}
@@ -66,6 +75,7 @@ class Songs extends React.Component {
                 allComments={this.props.allComments}
                 getAllComments={this.props.getAllComments}
                 key={song.id}
+                allUsers={this.props.allUsers}
               />
             );
           });
@@ -80,6 +90,12 @@ class Songs extends React.Component {
       songsMapped = Object.values(this.props.allSongs)
         .reverse()
         .map(song => {
+          // let changingUser = [];
+          // if (this.props.allUsers) {
+          //   if (this.props.allUsers.length) {
+          //     debugger;
+          //   }
+          // }
           return (
             <SongDisplay
               title={song.title}
@@ -91,6 +107,7 @@ class Songs extends React.Component {
               allComments={this.props.allComments}
               getAllComments={this.props.getAllComments}
               key={song.id}
+              allUsers={this.props.allUsers}
             />
           );
         });
