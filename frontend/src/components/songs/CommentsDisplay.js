@@ -6,7 +6,15 @@ import axios from "axios";
 class CommentsDisplay extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { commentInput: "" };
+    this.state = { commentInput: "", allUserFromProps: [] };
+  }
+
+  componentDidMount() {
+    if (this.props.allUsers) {
+      this.setState({
+        allUserFromProps: this.props.allUsers
+      });
+    }
   }
 
   handleCommentInputChange = e => {
@@ -36,11 +44,28 @@ class CommentsDisplay extends React.Component {
     let filteredCommentsArrObj = [];
     if (this.props.allComments) {
       filteredCommentsArrObj = Object.values(this.props.allComments).filter(
-        comment => comment.song_id === this.props.song_id
+        comment => {
+          return comment.song_id === this.props.song_id;
+        }
       );
     }
 
     let filteredCommentsMapped;
+    // let changingUserUsername = [];
+    // let changingUserId = [];
+
+    // // for users' username
+    // if (this.props.allUsers) {
+    //   debugger;
+    //   if (this.props.allUsers.length) {
+    //     let temp = Object.values(this.props.allUsers).find(user => {
+    //       return user.id === comment.user_id;
+    //     });
+    //     changingUserUsername = temp.username;
+    //     changingUserId = temp.id;
+    //   }
+    // }
+
     if (filteredCommentsArrObj.length) {
       filteredCommentsMapped = filteredCommentsArrObj.map(comment => {
         return (

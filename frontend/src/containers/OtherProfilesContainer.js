@@ -7,6 +7,7 @@ import { getAllSongsPostedByOneUser } from "../actions/ProfileActions.js";
 import { getAllFavoritesAllDetailsForOneUser } from "../actions/FavoritesActions.js";
 import { receiveProfileViewForPosted } from "../actions/ProfileActions.js";
 import { getAllGenres } from "../actions/GenresActions.js";
+import { getAllUsers } from "../actions/ProfileActions.js";
 
 const mapStateToProps = state => {
   return {
@@ -15,7 +16,8 @@ const mapStateToProps = state => {
     allFavoritesForUser: state.favorites.allFavoritesForUser,
     allComments: state.songs.allComments,
     allFavsAllDetailsForUser: state.favorites.allFavsAllDetailsForUser,
-    allGenres: state.genres.allGenres
+    allGenres: state.genres.allGenres,
+    allUsers: state.profile.allUsers
   };
 };
 
@@ -29,7 +31,8 @@ const mapDispatchToProps = dispatch => {
       dispatch(getAllFavoritesAllDetailsForOneUser()),
     receiveProfileViewForPosted: boolValue =>
       dispatch(receiveProfileViewForPosted(boolValue)),
-    getAllGenres: () => dispatch(getAllGenres())
+    getAllGenres: () => dispatch(getAllGenres()),
+    getAllUsers: () => dispatch(getAllUsers())
   };
 };
 

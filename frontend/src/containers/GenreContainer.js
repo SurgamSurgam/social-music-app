@@ -5,6 +5,7 @@ import { getAllComments } from "../actions/SongsActions.js";
 import { getAllFavoritesForOneUser } from "../actions/FavoritesActions.js";
 import { getAllGenres } from "../actions/GenresActions.js";
 import { getAllSongsForOneGenre } from "../actions/SongsActions.js";
+import { getAllUsers } from "../actions/ProfileActions.js";
 
 const mapStateToProps = state => {
   return {
@@ -12,7 +13,8 @@ const mapStateToProps = state => {
     allGenres: state.genres.allGenres,
     allSongs: state.songs.allSongs,
     allFavoritesForUser: state.favorites.allFavoritesForUser,
-    allComments: state.songs.allComments
+    allComments: state.songs.allComments,
+    allUsers: state.profile.allUsers
   };
 };
 
@@ -22,7 +24,9 @@ const mapDispatchToProps = dispatch => {
     getAllSongs: () => dispatch(getAllSongs()),
     getAllFavoritesForOneUser: () => dispatch(getAllFavoritesForOneUser()),
     getAllComments: () => dispatch(getAllComments()),
-    getAllSongsForOneGenre: genreId => dispatch(getAllSongsForOneGenre(genreId))
+    getAllSongsForOneGenre: genreId =>
+      dispatch(getAllSongsForOneGenre(genreId)),
+    getAllUsers: () => dispatch(getAllUsers())
   };
 };
 

@@ -8,6 +8,7 @@ class Genre extends React.Component {
   };
 
   componentDidMount() {
+    this.props.getAllUsers();
     this.props.getAllGenres();
     this.props.getAllSongs();
     this.props.getAllFavoritesForOneUser();
@@ -66,6 +67,7 @@ class Genre extends React.Component {
               allComments={this.props.allComments}
               getAllComments={this.props.getAllComments}
               key={song.id}
+              allUsers={this.props.allUsers}
             />
           );
         });
@@ -90,6 +92,7 @@ class Genre extends React.Component {
               allComments={this.props.allComments}
               getAllComments={this.props.getAllComments}
               key={song.id}
+              allUsers={this.props.allUsers}
             />
           );
         });

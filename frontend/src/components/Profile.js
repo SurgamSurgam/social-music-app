@@ -18,6 +18,7 @@ class Profile extends React.Component {
     this.props.getAllFavoritesAllDetailsForOneUser();
     this.props.getAllSongs();
     this.props.getAllGenres();
+    this.props.getAllUsers();
   }
 
   handleToggle = async val => {
@@ -98,6 +99,7 @@ class Profile extends React.Component {
                 allComments={this.props.allComments}
                 getAllComments={this.props.getAllComments}
                 key={song.id}
+                allUsers={this.props.allUsers}
               />
             );
           });
@@ -130,6 +132,7 @@ class Profile extends React.Component {
                 allComments={this.props.allComments}
                 getAllComments={this.props.getAllComments}
                 key={song.id}
+                allUsers={this.props.allUsers}
               />
             );
           });

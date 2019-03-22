@@ -3,6 +3,20 @@ import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import CommentsDisplay from "./CommentsDisplay.js";
 import FavoriteButtonDisplay from "./FavoriteButtonDisplay.js";
+import { getAllUsers } from "../../actions/ProfileActions.js";
+import { connect } from "react-redux";
+
+const mapStateToProps = state => {
+  return {
+    allUsers: state.profile.allUsers
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getAllUsers: () => dispatch(getAllUsers())
+  };
+};
 
 class SongDisplay extends React.Component {
   render() {
@@ -25,25 +39,32 @@ class SongDisplay extends React.Component {
 
           <h2>
             <Link to={`/profile/${this.props.user_id}`}>
-              {changingUserUsername ? changingUserUsername : null}
+              {this.props.user_id}YOOO
+              {/*{changingUserUsername ? changingUserUsername : "Missing USERNAME"}*/}
             </Link>
           </h2>
         </div>
         <FavoriteButtonDisplay
+          allUsers={this.props.allUsers}
           allFavoritesForUser={this.props.allFavoritesForUser}
           song_id={this.props.song_id}
           isDisplayPosted={this.props.isDisplayPosted}
-          allUsers={this.props.allUsers}
         />
         <CommentsDisplay
+          allUsers={this.props.allUsers}
           allComments={this.props.allComments}
           song_id={this.props.song_id}
           getAllComments={this.props.getAllComments}
-          allUsers={this.props.allUsers}
         />
       </div>
     );
   }
 }
 
-export default withRouter(SongDisplay);
+// export default withRouter(SongDisplay);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SongDisplay)
+);
