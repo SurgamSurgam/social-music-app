@@ -11,25 +11,39 @@ class Profile extends React.Component {
     this.props.getAllFavoritesForOneUser();
     this.props.getAllComments();
   }
+
+  handleToggle = async val => {
+    if (val === "posted") {
+      await this.setState({
+        displayToggle: true
+      });
+    }
+    if (val === "favorited") {
+      await this.setState({
+        displayToggle: false
+      });
+    }
+  };
+
   render() {
+    console.log(this.state);
     let { displayToggle } = this.state;
 
     let usernameUser1;
     let songsMapped;
-
-    if (this.props.allSongsPostedByUser) {
+    debugger;
+    if (displayToggle && this.props.allSongsPostedByUser) {
+      debugger;
       usernameUser1 = Object.values(this.props.allSongsPostedByUser)[0]
         .username;
-      debugger;
+
       if (
         displayToggle &&
         Object.values(this.props.allSongsPostedByUser).length
       ) {
-        debugger;
         songsMapped = Object.values(this.props.allSongsPostedByUser)
           .reverse()
           .map(song => {
-            debugger;
             return (
               <SongDisplay
                 title={song.title}
@@ -54,12 +68,13 @@ class Profile extends React.Component {
           </div>
         );
       }
-    } else if (this.props.allSongsallFavoritesForUser) {
+    } else if (!displayToggle && this.props.allFavoritesForUser) {
+      debugger;
       if (
         !displayToggle &&
-        Object.values(this.props.allSongsallFavoritesForUser).length
+        Object.values(this.props.allFavoritesForUser).length
       ) {
-        songsMapped = Object.values(this.props.allSongsallFavoritesForUser)
+        songsMapped = Object.values(this.props.allFavoritesForUser)
           .reverse()
           .map(song => {
             return (
@@ -78,7 +93,7 @@ class Profile extends React.Component {
           });
       } else if (
         !displayToggle &&
-        Object.values(this.props.allSongsallFavoritesForUser).length === 0
+        Object.values(this.props.allFavoritesForUser).length === 0
       ) {
         songsMapped = (
           <div className="errorMessage">
@@ -89,11 +104,25 @@ class Profile extends React.Component {
     }
 
     return (
-      <>
+      <div className="profileWrapper">
         <h1>PROFILE PAGE</h1>
         <h2>{usernameUser1}</h2>
+        <div className="profileButtonsContainer">
+          <button
+            className="postedButtonProfile"
+            onClick={() => this.handleToggle("posted")}
+          >
+            Posted
+          </button>
+          <button
+            className="favoritedButtonProfile"
+            onClick={() => this.handleToggle("favorited")}
+          >
+            Favorited
+          </button>
+        </div>
         {songsMapped}
-      </>
+      </div>
     );
   }
 }
