@@ -109,7 +109,7 @@ class FavoriteButtonDisplay extends React.Component {
     return (
       <div>
         <h2>
-          Favorited {favCount.favorited_count}{" "}
+          Favorited {!!favCount ? favCount.favorited_count : 0}{" "}
           {favCount.favorited_count === 1 ? "time" : "times"}
         </h2>
         {favId ? (

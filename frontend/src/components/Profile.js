@@ -1,12 +1,14 @@
 import React from "react";
 import SongDisplay from "./songs/SongDisplay.js";
 import "./Profile.css";
+import axios from "axios";
 
 class Profile extends React.Component {
   state = {
     isDisplayPostedView: true,
     newSongTitle: "",
-    newSongImgUrl: ""
+    newSongImgUrl: "",
+    selectedGenre: ""
   };
 
   componentDidMount() {
@@ -15,6 +17,7 @@ class Profile extends React.Component {
     this.props.getAllComments();
     this.props.getAllFavoritesAllDetailsForOneUser();
     this.props.getAllSongs();
+    this.props.getAllGenres();
   }
 
   handleToggle = async val => {
@@ -40,23 +43,37 @@ class Profile extends React.Component {
     });
   };
 
+  // handleSelect = e => {
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
+
   handleNewSongSubmit = e => {
     if (e) {
       e.preventDefault();
     }
-    console.log("YES!");
-    //
-    // //resets back to all songs is search is empty and no searchResults found
-    // if (!this.state.searchQuery && !this.state.searchResults.length) {
-    //   this.setState({
-    //     isSubmitted: false
-    //   });
-    // } else {
-    //   this.setState({
-    //     isSubmitted: true,
-    //     searchQuery: ""
-    //   });
-    // }
+
+    let { newSongTitle, newSongImgUrl, selectedGenre } = this.state;
+
+    axios
+      .post("/api/songs/", {
+        title: newSongTitle,
+        img_url: newSongImgUrl,
+        user_id: 1,
+        genre_id: selectedGenre
+      })
+      .then(() => {
+        this.setState({
+          newSongTitle: "",
+          newSongImgUrl: "",
+          selectedGenre: ""
+        });
+      })
+      .then(() => {
+        this.props.getAllSongs();
+        this.props.getAllSongsPostedByOneUser();
+      });
   };
 
   render() {
@@ -136,6 +153,17 @@ class Profile extends React.Component {
       }
     }
 
+    let genreList = [];
+    if (this.props.allGenres) {
+      genreList = Object.values(this.props.allGenres).map((genre, i) => {
+        return (
+          <option key={i + 1} value={genre.id}>
+            {genre.genre_name}
+          </option>
+        );
+      });
+    }
+
     let displayNewSongForm = (
       <div className="newSongFormContainer">
         <h2 className="newSongH2">Add New Song</h2>
@@ -149,6 +177,7 @@ class Profile extends React.Component {
             value={this.state.newSongTitle}
             onChange={this.handleNewSongChange}
             placeholder="Title"
+            required
           />
           <input
             name="newSongImgUrl"
@@ -156,7 +185,16 @@ class Profile extends React.Component {
             value={this.state.newSongImgUrl}
             onChange={this.handleNewSongChange}
             placeholder="Image URL"
+            required
           />
+          <select
+            required
+            name="selectedGenre"
+            onChange={this.handleNewSongChange}
+          >
+            <option key="0" />
+            {genreList}
+          </select>
           <button type="submit">Submit</button>
         </form>
       </div>
