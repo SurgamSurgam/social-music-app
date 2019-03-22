@@ -20,7 +20,7 @@ class SongDisplay extends React.Component {
         <FavoriteButtonDisplay
           allFavoritesForUser={this.props.allFavoritesForUser}
           song_id={this.props.song_id}
-          favorited_count={this.props.favorited_count}
+          isDisplayPosted={this.props.isDisplayPosted}
         />
         <CommentsDisplay
           allComments={this.props.allComments}

@@ -3,7 +3,7 @@ import SongDisplay from "./songs/SongDisplay.js";
 
 class Profile extends React.Component {
   state = {
-    displayToggle: true
+    isDisplayPostedView: true
   };
 
   componentDidMount() {
@@ -11,24 +11,27 @@ class Profile extends React.Component {
     this.props.getAllFavoritesForOneUser();
     this.props.getAllComments();
     this.props.getAllFavoritesAllDetailsForOneUser();
+    this.props.getAllSongs();
   }
 
   handleToggle = async val => {
     if (val === "posted") {
       await this.setState({
-        displayToggle: true
+        isDisplayPostedView: true
       });
+      this.props.receiveProfileViewForPosted(true);
     }
     if (val === "favorited") {
       await this.setState({
-        displayToggle: false
+        isDisplayPostedView: false
       });
+      this.props.receiveProfileViewForPosted(false);
     }
   };
 
   render() {
     console.log(this.state);
-    let { displayToggle } = this.state;
+    let { isDisplayPostedView } = this.state;
     //To display sample user 1
     let usernameUser1;
     if (this.props.allSongsPostedByUser) {
@@ -37,9 +40,9 @@ class Profile extends React.Component {
     }
     //To display body of prof
     let songsMapped;
-    if (displayToggle && this.props.allSongsPostedByUser) {
+    if (isDisplayPostedView && this.props.allSongsPostedByUser) {
       if (
-        displayToggle &&
+        isDisplayPostedView &&
         Object.values(this.props.allSongsPostedByUser).length
       ) {
         songsMapped = Object.values(this.props.allSongsPostedByUser)
@@ -60,7 +63,7 @@ class Profile extends React.Component {
             );
           });
       } else if (
-        displayToggle &&
+        isDisplayPostedView &&
         Object.values(this.props.allSongsPostedByUser).length === 0
       ) {
         songsMapped = (
@@ -69,13 +72,11 @@ class Profile extends React.Component {
           </div>
         );
       }
-    } else if (!displayToggle && this.props.allFavsAllDetailsForUser) {
-      debugger;
+    } else if (!isDisplayPostedView && this.props.allFavsAllDetailsForUser) {
       if (
-        !displayToggle &&
+        !isDisplayPostedView &&
         Object.values(this.props.allFavsAllDetailsForUser).length
       ) {
-        debugger;
         songsMapped = Object.values(this.props.allFavsAllDetailsForUser)
           .reverse()
           .map(song => {
@@ -94,7 +95,7 @@ class Profile extends React.Component {
             );
           });
       } else if (
-        !displayToggle &&
+        !isDisplayPostedView &&
         Object.values(this.props.allFavsAllDetailsForUser).length === 0
       ) {
         songsMapped = (

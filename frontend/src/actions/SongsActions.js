@@ -30,7 +30,9 @@ export const getAllComments = () => dispatch => {
 };
 
 export const getAllSongsForOneGenre = genreId => dispatch => {
-  return axios.get(`/api/songs/genres/${genreId}`).then(songs => {
-    return dispatch(receiveAllSongsForOneGenre(songs.data.body));
-  });
+  if (typeof genreId !== "undefined") {
+    return axios.get(`/api/songs/genres/${genreId}`).then(songs => {
+      return dispatch(receiveAllSongsForOneGenre(songs.data.body));
+    });
+  }
 };

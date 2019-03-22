@@ -44,7 +44,7 @@ const getAllFavoritesForOneUser = (req, res, next) => {
 
 const getAllFavoritesAllDetailsForOneUser = (req, res, next) => {
   db.any(
-    "SELECT songs.id, title, img_url, songs.user_id, users.username, users.id AS users_serial_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN  CAST(0 AS INT) ELSE  CAST(COUNT(*) AS INT) END AS favorited_count FROM favorites FULL OUTER JOIN songs ON favorites.song_id = songs.id FULL OUTER JOIN users ON users.id = favorites.user_id WHERE favorites.user_id=$1 GROUP BY songs.id, title, img_url, songs.user_id, users.id, users.username, songs.genre_id, favorites.song_id",
+    "SELECT songs.id, title, img_url, songs.user_id, users.username, users.id AS users_serial_id, songs.genre_id, CASE WHEN favorites.song_id IS NULL THEN  CAST(0 AS INT) ELSE  CAST(COUNT(*) AS INT) END AS favorited_count, favorites.id AS fav_id FROM favorites FULL OUTER JOIN songs ON favorites.song_id = songs.id FULL OUTER JOIN users ON users.id = favorites.user_id WHERE favorites.user_id=$1 GROUP BY songs.id, title, img_url, songs.user_id, users.id, users.username, songs.genre_id, favorites.song_id, favorites.id",
     [+req.params.user_id]
   )
     .then(favorites => {
