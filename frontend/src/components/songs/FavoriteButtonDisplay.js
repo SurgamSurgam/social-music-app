@@ -30,16 +30,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 class FavoriteButtonDisplay extends React.Component {
-  // state = { profileFavView: false };
-  //
-  // handleFavView = () => {
-  //   this.setState({
-  //     profileFavView:
-  //   });
-  // };
-
   render() {
-    console.log("yep", this.props.profileViewForPosted);
     let answer = [];
     let favId;
 
@@ -51,6 +42,8 @@ class FavoriteButtonDisplay extends React.Component {
         let answerObj = Object.values(this.props.allSongs).filter(song => {
           if (this.props.song_id === song.id) {
             return song.favorited_count;
+          } else {
+            return [];
           }
         });
         if (answerObj.length) {
@@ -68,13 +61,8 @@ class FavoriteButtonDisplay extends React.Component {
         );
       }
       if (favResults.length) {
-        debugger;
         favId = favResults[0].fav_id;
       }
-
-      // if (answer.length) {
-      //   favId = answer[0].id;
-      // }
     } else if (
       this.props.match.path === "/profile" &&
       this.props.profileViewForPosted
@@ -112,10 +100,11 @@ class FavoriteButtonDisplay extends React.Component {
       favCount = Object.values(this.props.allSongs).find(song => {
         if (this.props.song_id === song.id) {
           return song.id;
+        } else {
+          return 0;
         }
       });
     }
-    console.log("favID:", favId);
 
     return (
       <div>
@@ -131,7 +120,6 @@ class FavoriteButtonDisplay extends React.Component {
               await this.props.getAllFavoritesForOneUser();
               await this.props.getAllSongsForOneGenre(genreId);
               await this.props.getAllFavoritesAllDetailsForOneUser();
-              console.log("remove");
             }}
           >
             Unfavorite
@@ -144,7 +132,6 @@ class FavoriteButtonDisplay extends React.Component {
               await this.props.getAllFavoritesForOneUser();
               await this.props.getAllSongsForOneGenre(genreId);
               await this.props.getAllFavoritesAllDetailsForOneUser();
-              console.log("really");
             }}
           >
             Favorite

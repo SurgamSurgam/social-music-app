@@ -30,7 +30,6 @@ class Profile extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     let { isDisplayPostedView } = this.state;
     //To display sample user 1
     let usernameUser1;

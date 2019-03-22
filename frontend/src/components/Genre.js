@@ -29,16 +29,13 @@ class Genre extends React.Component {
 
   handleFormSubmit = async e => {
     e.preventDefault();
-
     await this.props.getAllSongsForOneGenre(+this.state.selectedGenre);
-
     await this.setState({
       formSubmitted: true
     });
   };
 
   render() {
-    console.log(this.state);
     const { formSubmitted } = this.state;
 
     let genreList = [];

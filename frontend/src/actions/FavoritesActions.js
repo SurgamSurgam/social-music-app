@@ -1,6 +1,5 @@
 import { RECEIVE_ALL_FAVORITES_FOR_USER } from "./actionTypes.js";
 import { RECEIVE_ALL_FAVORITES_ALL_DETAILS_FOR_USER } from "./actionTypes.js";
-// import { ADD_FAVORITE } from "./actionTypes.js";
 import { DELETE_FAVORITE } from "./actionTypes.js";
 import axios from "axios";
 
@@ -11,10 +10,6 @@ export const receiveAllFavoritesForUserId1 = favorites => {
 export const receiveAllFavoritesAllDetailsForUserId1 = favorites => {
   return { type: RECEIVE_ALL_FAVORITES_ALL_DETAILS_FOR_USER, favorites };
 };
-
-// export const receiveAddFavorite = songId => {
-//   return { type: ADD_FAVORITE, songId };
-// };
 
 export const receiveDeleteFavorite = favId => {
   return { type: DELETE_FAVORITE, favId };
@@ -36,9 +31,6 @@ export const getAllFavoritesAllDetailsForOneUser = () => dispatch => {
 
 export const addFavorite = songId => dispatch => {
   return axios.post("/api/favorites", { user_id: 1, song_id: +songId });
-  // .then(() => {
-  //   return dispatch(receiveAddFavorite(+songId));
-  // });
 };
 
 export const deleteFavorite = favId => dispatch => {
