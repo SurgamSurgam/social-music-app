@@ -1,5 +1,6 @@
 import React from "react";
 import SongDisplay from "./songs/SongDisplay.js";
+import "./Profile.css";
 
 class Profile extends React.Component {
   state = {
@@ -111,13 +112,21 @@ class Profile extends React.Component {
         <h2>{usernameUser1}</h2>
         <div className="profileButtonsContainer">
           <button
-            className="postedButtonProfile"
+            className={
+              isDisplayPostedView
+                ? "postedButtonProfile isSelectedBackgroundRed"
+                : "postedButtonProfile"
+            }
             onClick={() => this.handleToggle("posted")}
           >
             Posted
           </button>
           <button
-            className="favoritedButtonProfile"
+            className={
+              !isDisplayPostedView
+                ? "favoritedButtonProfile isSelectedBackgroundRed"
+                : "favoritedButtonProfile"
+            }
             onClick={() => this.handleToggle("favorited")}
           >
             Favorited
