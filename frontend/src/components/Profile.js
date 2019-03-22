@@ -10,6 +10,7 @@ class Profile extends React.Component {
     this.props.getAllSongsPostedByOneUser();
     this.props.getAllFavoritesForOneUser();
     this.props.getAllComments();
+    this.props.getAllFavoritesAllDetailsForOneUser();
   }
 
   handleToggle = async val => {
@@ -28,15 +29,15 @@ class Profile extends React.Component {
   render() {
     console.log(this.state);
     let { displayToggle } = this.state;
-
+    //To display sample user 1
     let usernameUser1;
-    let songsMapped;
-    debugger;
-    if (displayToggle && this.props.allSongsPostedByUser) {
-      debugger;
+    if (this.props.allSongsPostedByUser) {
       usernameUser1 = Object.values(this.props.allSongsPostedByUser)[0]
         .username;
-
+    }
+    //To display body of prof
+    let songsMapped;
+    if (displayToggle && this.props.allSongsPostedByUser) {
       if (
         displayToggle &&
         Object.values(this.props.allSongsPostedByUser).length
@@ -68,13 +69,14 @@ class Profile extends React.Component {
           </div>
         );
       }
-    } else if (!displayToggle && this.props.allFavoritesForUser) {
+    } else if (!displayToggle && this.props.allFavsAllDetailsForUser) {
       debugger;
       if (
         !displayToggle &&
-        Object.values(this.props.allFavoritesForUser).length
+        Object.values(this.props.allFavsAllDetailsForUser).length
       ) {
-        songsMapped = Object.values(this.props.allFavoritesForUser)
+        debugger;
+        songsMapped = Object.values(this.props.allFavsAllDetailsForUser)
           .reverse()
           .map(song => {
             return (
@@ -84,7 +86,7 @@ class Profile extends React.Component {
                 favorited_count={song.favorited_count}
                 user_id={song.user_id}
                 song_id={song.id}
-                allFavoritesForUser={this.props.allFavoritesForUser}
+                allFavoritesForUser={this.props.allFavsAllDetailsForUser}
                 allComments={this.props.allComments}
                 getAllComments={this.props.getAllComments}
                 key={song.id}
@@ -93,7 +95,7 @@ class Profile extends React.Component {
           });
       } else if (
         !displayToggle &&
-        Object.values(this.props.allFavoritesForUser).length === 0
+        Object.values(this.props.allFavsAllDetailsForUser).length === 0
       ) {
         songsMapped = (
           <div className="errorMessage">
