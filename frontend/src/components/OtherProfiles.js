@@ -2,10 +2,8 @@ import React from "react";
 import SongDisplay from "./songs/SongDisplay.js";
 import "./Profile.css";
 import axios from "axios";
-import OtherProfiles from "./OtherProfiles.js";
-import { Route, Switch } from "react-router-dom";
 
-class Profile extends React.Component {
+class OtherProfiles extends React.Component {
   state = {
     isDisplayPostedView: true,
     newSongTitle: "",
@@ -155,65 +153,56 @@ class Profile extends React.Component {
       }
     }
 
-    let genreList = [];
-    if (this.props.allGenres) {
-      genreList = Object.values(this.props.allGenres).map((genre, i) => {
-        return (
-          <option key={i + 1} value={genre.id}>
-            {genre.genre_name}
-          </option>
-        );
-      });
-    }
-
-    let displayNewSongForm = (
-      <div className="newSongFormContainer">
-        <h2 className="newSongH2">Add New Song</h2>
-        <form
-          className="newSongForm"
-          onSubmit={this.handleNewSongSubmit.bind(this)}
-        >
-          <input
-            name="newSongTitle"
-            type="text"
-            value={this.state.newSongTitle}
-            onChange={this.handleNewSongChange}
-            placeholder="Title"
-            required
-          />
-          <input
-            name="newSongImgUrl"
-            type="text"
-            value={this.state.newSongImgUrl}
-            onChange={this.handleNewSongChange}
-            placeholder="Image URL"
-            required
-          />
-          <select
-            required
-            name="selectedGenre"
-            onChange={this.handleNewSongChange}
-          >
-            <option key="0" />
-            {genreList}
-          </select>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    );
-
-    // <Route
-    //   path="/profile/:id"
-    //   render={() => {
-    //     return <h1>OTHER PROFILES PAGE</h1>;
-    //   }}
-    // />
-    // <Switch>
-    // <Route path="/profile/:id" component={OtherProfiles} />
-    // </Switch>
+    // let genreList = [];
+    // if (this.props.allGenres) {
+    //   genreList = Object.values(this.props.allGenres).map((genre, i) => {
+    //     return (
+    //       <option key={i + 1} value={genre.id}>
+    //         {genre.genre_name}
+    //       </option>
+    //     );
+    //   });
+    // }
+    //
+    // let displayNewSongForm = (
+    //   <div className="newSongFormContainer">
+    //     <h2 className="newSongH2">Add New Song</h2>
+    //     <form
+    //       className="newSongForm"
+    //       onSubmit={this.handleNewSongSubmit.bind(this)}
+    //     >
+    //       <input
+    //         name="newSongTitle"
+    //         type="text"
+    //         value={this.state.newSongTitle}
+    //         onChange={this.handleNewSongChange}
+    //         placeholder="Title"
+    //         required
+    //       />
+    //       <input
+    //         name="newSongImgUrl"
+    //         type="text"
+    //         value={this.state.newSongImgUrl}
+    //         onChange={this.handleNewSongChange}
+    //         placeholder="Image URL"
+    //         required
+    //       />
+    //       <select
+    //         required
+    //         name="selectedGenre"
+    //         onChange={this.handleNewSongChange}
+    //       >
+    //         <option key="0" />
+    //         {genreList}
+    //       </select>
+    //       <button type="submit">Submit</button>
+    //     </form>
+    //   </div>
+    // );
+    // debugger;
     return (
       <div className="profileWrapper">
-        <h1>PROFILE PAGE</h1>
+        <h1>OTHER PROFILES PAGE</h1>
         <h2>{usernameUser1}</h2>
         <div className="profileButtonsContainer">
           <button
@@ -237,11 +226,11 @@ class Profile extends React.Component {
             Favorited
           </button>
         </div>
-        {isDisplayPostedView ? displayNewSongForm : null}
+        {/*{isDisplayPostedView ? displayNewSongForm : null}*/}
         {songsMapped}
       </div>
     );
   }
 }
 
-export default Profile;
+export default OtherProfiles;

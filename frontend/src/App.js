@@ -7,6 +7,7 @@ import SongsContainer from "./containers/SongsContainer.js";
 import PopularityContainer from "./containers/PopularityContainer.js";
 import GenreContainer from "./containers/GenreContainer.js";
 import ProfileContainer from "./containers/ProfileContainer.js";
+import OtherProfilesContainer from "./containers/OtherProfilesContainer.js";
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/songs/bypop" component={PopularityContainer} />
           <Route exact path="/songs/bygenre" component={GenreContainer} />
           <Route exact path="/profile" component={ProfileContainer} />
+          <Route path="/profile/:id" component={OtherProfilesContainer} />
         </Switch>
       </div>
     );
