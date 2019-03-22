@@ -28,12 +28,13 @@ const mapDispatchToProps = dispatch => {
   return {
     dynamic_getAllSongsPostedByOneUser: user_id =>
       dispatch(dynamic_getAllSongsPostedByOneUser(user_id)),
+    getAllFavoritesForOneUser: user_id =>
+      dispatch(getAllFavoritesForOneUser(user_id)),
+    getAllFavoritesAllDetailsForOneUser: user_id =>
+      dispatch(getAllFavoritesAllDetailsForOneUser(user_id)),
     getAllSongsPostedByOneUser: () => dispatch(getAllSongsPostedByOneUser()),
     getAllSongs: () => dispatch(getAllSongs()),
-    getAllFavoritesForOneUser: () => dispatch(getAllFavoritesForOneUser()),
     getAllComments: () => dispatch(getAllComments()),
-    getAllFavoritesAllDetailsForOneUser: () =>
-      dispatch(getAllFavoritesAllDetailsForOneUser()),
     receiveProfileViewForPosted: boolValue =>
       dispatch(receiveProfileViewForPosted(boolValue)),
     getAllGenres: () => dispatch(getAllGenres()),

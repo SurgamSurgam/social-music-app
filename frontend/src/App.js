@@ -19,8 +19,8 @@ class App extends Component {
           <Route exact path="/songs" component={SongsContainer} />
           <Route exact path="/songs/bypop" component={PopularityContainer} />
           <Route exact path="/songs/bygenre" component={GenreContainer} />
-          <Route exact path="/profile" component={ProfileContainer} />
           <Route path="/profile/:id" component={OtherProfilesContainer} />
+          <Route exact path="/profile" component={ProfileContainer} />
         </Switch>
       </div>
     );

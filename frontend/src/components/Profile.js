@@ -21,6 +21,10 @@ class Profile extends React.Component {
     this.props.getAllUsers();
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.props = nextProps;
+  }
+
   handleToggle = async val => {
     if (val === "posted") {
       await this.setState({

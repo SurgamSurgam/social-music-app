@@ -14,9 +14,9 @@ class OtherProfiles extends React.Component {
   componentDidMount() {
     // this.props.getAllSongsPostedByOneUser();
     this.props.dynamic_getAllSongsPostedByOneUser(+this.props.match.params.id);
-    this.props.getAllFavoritesForOneUser();
+    this.props.getAllFavoritesForOneUser(+this.props.match.params.id);
     this.props.getAllComments();
-    this.props.getAllFavoritesAllDetailsForOneUser();
+    this.props.getAllFavoritesAllDetailsForOneUser(+this.props.match.params.id);
     this.props.getAllSongs();
     this.props.getAllGenres();
     this.props.getAllUsers();
