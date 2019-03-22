@@ -6,17 +6,17 @@ import FavoriteButtonDisplay from "./FavoriteButtonDisplay.js";
 import { getAllUsers } from "../../actions/ProfileActions.js";
 import { connect } from "react-redux";
 
-const mapStateToProps = state => {
-  return {
-    allUsers: state.profile.allUsers
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getAllUsers: () => dispatch(getAllUsers())
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     allUsers: state.profile.allUsers
+//   };
+// };
+//
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getAllUsers: () => dispatch(getAllUsers())
+//   };
+// };
 
 class SongDisplay extends React.Component {
   render() {
@@ -39,8 +39,9 @@ class SongDisplay extends React.Component {
 
           <h2>
             <Link to={`/profile/${this.props.user_id}`}>
-              {this.props.user_id}YOOO
-              {/*{changingUserUsername ? changingUserUsername : "Missing USERNAME"}*/}
+              {changingUserUsername
+                ? changingUserUsername
+                : "No Username Available"}
             </Link>
           </h2>
         </div>
@@ -63,8 +64,7 @@ class SongDisplay extends React.Component {
 
 // export default withRouter(SongDisplay);
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(SongDisplay)
+  connect()(SongDisplay)
+  // mapStateToProps,
+  // mapDispatchToProps
 );

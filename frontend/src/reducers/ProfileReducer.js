@@ -1,4 +1,5 @@
 import { RECEIVE_ALL_SONGS_POSTED_BY_USER } from "../actions/actionTypes.js";
+import { DYNAMIC_RECEIVE_ALL_SONGS_POSTED_BY_USER } from "../actions/actionTypes.js";
 import { RECEIVE_PROFILE_VIEW_FOR_POSTED } from "../actions/actionTypes.js";
 import { RECEIVE_ALL_USERS } from "../actions/actionTypes.js";
 import merge from "lodash/merge";
@@ -23,6 +24,12 @@ const ProfileReducer = (oldState = initState, action) => {
       return {
         ...newState,
         allSongsPostedByUser: normalizeData(action.songs)
+      };
+    case DYNAMIC_RECEIVE_ALL_SONGS_POSTED_BY_USER:
+      let newState3 = merge({}, oldState);
+      return {
+        ...newState3,
+        dynamic_allSongsPostedByUser: normalizeData(action.songs)
       };
     case RECEIVE_PROFILE_VIEW_FOR_POSTED:
       let newState1 = merge({}, oldState);

@@ -1,4 +1,6 @@
 import { RECEIVE_ALL_FAVORITES_FOR_USER } from "./actionTypes.js";
+import { DYNAMIC_RECEIVE_ALL_FAVORITES_FOR_USER } from "./actionTypes.js";
+
 import { RECEIVE_ALL_FAVORITES_ALL_DETAILS_FOR_USER } from "./actionTypes.js";
 import { DELETE_FAVORITE } from "./actionTypes.js";
 import axios from "axios";

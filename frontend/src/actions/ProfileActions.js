@@ -1,4 +1,5 @@
 import { RECEIVE_ALL_SONGS_POSTED_BY_USER } from "./actionTypes.js";
+import { DYNAMIC_RECEIVE_ALL_SONGS_POSTED_BY_USER } from "./actionTypes.js";
 import { RECEIVE_PROFILE_VIEW_FOR_POSTED } from "./actionTypes.js";
 import { RECEIVE_ALL_USERS } from "./actionTypes.js";
 import axios from "axios";
@@ -6,6 +7,10 @@ import axios from "axios";
 //action creators
 export const receiveAllSongsPostedByUser = songs => {
   return { type: RECEIVE_ALL_SONGS_POSTED_BY_USER, songs };
+};
+
+export const dynamic_receiveAllSongsPostedByUser = songs => {
+  return { type: DYNAMIC_RECEIVE_ALL_SONGS_POSTED_BY_USER, songs };
 };
 
 export const receiveProfileViewForPosted = boolValue => {
@@ -20,6 +25,12 @@ export const receiveAllUsers = users => {
 //sample user 1
 export const getAllSongsPostedByOneUser = () => dispatch => {
   return axios.get("/api/songs/users/1/").then(songs => {
+    return dispatch(receiveAllSongsPostedByUser(songs.data.body));
+  });
+};
+
+export const dynamic_getAllSongsPostedByOneUser = user_id => dispatch => {
+  return axios.get(`/api/songs/users/${+user_id}/`).then(songs => {
     return dispatch(receiveAllSongsPostedByUser(songs.data.body));
   });
 };

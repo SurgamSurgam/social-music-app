@@ -12,7 +12,8 @@ class OtherProfiles extends React.Component {
   };
 
   componentDidMount() {
-    this.props.getAllSongsPostedByOneUser();
+    // this.props.getAllSongsPostedByOneUser();
+    this.props.dynamic_getAllSongsPostedByOneUser(+this.props.match.params.id);
     this.props.getAllFavoritesForOneUser();
     this.props.getAllComments();
     this.props.getAllFavoritesAllDetailsForOneUser();
@@ -53,7 +54,7 @@ class OtherProfiles extends React.Component {
       .post("/api/songs/", {
         title: newSongTitle,
         img_url: newSongImgUrl,
-        user_id: 1,
+        user_id: +this.props.match.params.id,
         genre_id: selectedGenre
       })
       .then(() => {
@@ -65,7 +66,9 @@ class OtherProfiles extends React.Component {
       })
       .then(() => {
         this.props.getAllSongs();
-        this.props.getAllSongsPostedByOneUser();
+        this.props.dynamic_getAllSongsPostedByOneUser(
+          +this.props.match.params.id
+        );
       });
   };
 
