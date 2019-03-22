@@ -4,7 +4,9 @@ import "./Profile.css";
 
 class Profile extends React.Component {
   state = {
-    isDisplayPostedView: true
+    isDisplayPostedView: true,
+    newSongTitle: "",
+    newSongImgUrl: ""
   };
 
   componentDidMount() {
@@ -30,7 +32,35 @@ class Profile extends React.Component {
     }
   };
 
+  handleNewSongChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+      // searchQueryCopyForFiltering: e.target.value,
+      // isSubmitted: false
+    });
+  };
+
+  handleNewSongSubmit = e => {
+    if (e) {
+      e.preventDefault();
+    }
+    console.log("YES!");
+    //
+    // //resets back to all songs is search is empty and no searchResults found
+    // if (!this.state.searchQuery && !this.state.searchResults.length) {
+    //   this.setState({
+    //     isSubmitted: false
+    //   });
+    // } else {
+    //   this.setState({
+    //     isSubmitted: true,
+    //     searchQuery: ""
+    //   });
+    // }
+  };
+
   render() {
+    console.log(this.state);
     let { isDisplayPostedView } = this.state;
     //To display sample user 1
     let usernameUser1;
@@ -106,6 +136,32 @@ class Profile extends React.Component {
       }
     }
 
+    let displayNewSongForm = (
+      <div className="newSongFormContainer">
+        <h2 className="newSongH2">Add New Song</h2>
+        <form
+          className="newSongForm"
+          onSubmit={this.handleNewSongSubmit.bind(this)}
+        >
+          <input
+            name="newSongTitle"
+            type="text"
+            value={this.state.newSongTitle}
+            onChange={this.handleNewSongChange}
+            placeholder="Title"
+          />
+          <input
+            name="newSongImgUrl"
+            type="text"
+            value={this.state.newSongImgUrl}
+            onChange={this.handleNewSongChange}
+            placeholder="Image URL"
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    );
+
     return (
       <div className="profileWrapper">
         <h1>PROFILE PAGE</h1>
@@ -132,6 +188,7 @@ class Profile extends React.Component {
             Favorited
           </button>
         </div>
+        {isDisplayPostedView ? displayNewSongForm : null}
         {songsMapped}
       </div>
     );
