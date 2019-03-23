@@ -14,11 +14,11 @@ class Profile extends React.Component {
   componentDidMount() {
     this.props.getAllSongsPostedByOneUser();
     this.props.getAllFavoritesForOneUser();
+    this.props.getAllUsers();
     this.props.getAllComments();
     this.props.getAllFavoritesAllDetailsForOneUser();
     this.props.getAllSongs();
     this.props.getAllGenres();
-    this.props.getAllUsers();
   }
 
   componentWillReceiveProps(nextProps) {

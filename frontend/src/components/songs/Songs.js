@@ -10,10 +10,10 @@ class Songs extends React.Component {
   };
 
   componentDidMount() {
+    this.props.getAllUsers();
     this.props.getAllSongs();
     this.props.getAllFavoritesForOneUser();
     this.props.getAllComments();
-    this.props.getAllUsers();
   }
 
   handleChange = e => {

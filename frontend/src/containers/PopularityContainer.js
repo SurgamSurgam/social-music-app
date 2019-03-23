@@ -9,8 +9,8 @@ const mapStateToProps = state => {
   return {
     allSongsByPopularity: state.songs.allSongsByPopularity,
     allFavoritesForUser: state.favorites.allFavoritesForUser,
-    allComments: state.songs.allComments,
-    allUsers: state.profile.allUsers
+    allUsers: state.profile.allUsers,
+    allComments: state.songs.allComments
   };
 };
 
@@ -18,8 +18,8 @@ const mapDispatchToProps = dispatch => {
   return {
     getAllSongs: () => dispatch(getAllSongs()),
     getAllFavoritesForOneUser: () => dispatch(getAllFavoritesForOneUser()),
-    getAllComments: () => dispatch(getAllComments()),
-    getAllUsers: () => dispatch(getAllUsers())
+    getAllUsers: () => dispatch(getAllUsers()),
+    getAllComments: () => dispatch(getAllComments())
   };
 };
 

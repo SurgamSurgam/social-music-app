@@ -17,10 +17,10 @@ const mapStateToProps = state => {
     allSongsPostedByUser: state.profile.allSongsPostedByUser,
     allSongs: state.songs.allSongs,
     allFavoritesForUser: state.favorites.allFavoritesForUser,
+    allUsers: state.profile.allUsers,
     allComments: state.songs.allComments,
     allFavsAllDetailsForUser: state.favorites.allFavsAllDetailsForUser,
-    allGenres: state.genres.allGenres,
-    allUsers: state.profile.allUsers
+    allGenres: state.genres.allGenres
   };
 };
 
@@ -34,11 +34,11 @@ const mapDispatchToProps = dispatch => {
       dispatch(getAllFavoritesAllDetailsForOneUser(user_id)),
     getAllSongsPostedByOneUser: () => dispatch(getAllSongsPostedByOneUser()),
     getAllSongs: () => dispatch(getAllSongs()),
+    getAllUsers: () => dispatch(getAllUsers()),
     getAllComments: () => dispatch(getAllComments()),
     receiveProfileViewForPosted: boolValue =>
       dispatch(receiveProfileViewForPosted(boolValue)),
-    getAllGenres: () => dispatch(getAllGenres()),
-    getAllUsers: () => dispatch(getAllUsers())
+    getAllGenres: () => dispatch(getAllGenres())
   };
 };
 

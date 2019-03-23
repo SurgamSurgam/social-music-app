@@ -20,10 +20,10 @@ const mapDispatchToProps = dispatch => {
   return {
     getAllSongs: () => dispatch(getAllSongs()),
     getAllFavoritesForOneUser: () => dispatch(getAllFavoritesForOneUser()),
+    getAllUsers: () => dispatch(getAllUsers()),
     getAllComments: () => dispatch(getAllComments()),
     addFavorite: songId => dispatch(addFavorite(songId)),
-    deleteFavorite: favId => dispatch(deleteFavorite(favId)),
-    getAllUsers: () => dispatch(getAllUsers())
+    deleteFavorite: favId => dispatch(deleteFavorite(favId))
   };
 };
 

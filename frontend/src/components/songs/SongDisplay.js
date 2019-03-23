@@ -6,29 +6,29 @@ import FavoriteButtonDisplay from "./FavoriteButtonDisplay.js";
 import { getAllUsers } from "../../actions/ProfileActions.js";
 import { connect } from "react-redux";
 
-// const mapStateToProps = state => {
-//   return {
-//     allUsers: state.profile.allUsers
-//   };
-// };
-//
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     getAllUsers: () => dispatch(getAllUsers())
-//   };
-// };
+const mapStateToProps = state => {
+  return {
+    allUsers: state.profile.allUsers
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getAllUsers: () => dispatch(getAllUsers())
+  };
+};
 
 class SongDisplay extends React.Component {
   render() {
     let changingUserUsername = [];
-    let changingUserId = [];
+    // let changingUserId = [];
     if (this.props.allUsers) {
       if (this.props.allUsers.length) {
         let temp = Object.values(this.props.allUsers).find(user => {
           return user.id === this.props.user_id;
         });
         changingUserUsername = temp.username;
-        changingUserId = temp.id;
+        // changingUserId = temp.id;
       }
     }
     return (
@@ -64,7 +64,8 @@ class SongDisplay extends React.Component {
 
 // export default withRouter(SongDisplay);
 export default withRouter(
-  connect()(SongDisplay)
-  // mapStateToProps,
-  // mapDispatchToProps
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SongDisplay)
 );

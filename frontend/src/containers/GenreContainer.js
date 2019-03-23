@@ -13,8 +13,8 @@ const mapStateToProps = state => {
     allGenres: state.genres.allGenres,
     allSongs: state.songs.allSongs,
     allFavoritesForUser: state.favorites.allFavoritesForUser,
-    allComments: state.songs.allComments,
-    allUsers: state.profile.allUsers
+    allUsers: state.profile.allUsers,
+    allComments: state.songs.allComments
   };
 };
 
@@ -23,10 +23,9 @@ const mapDispatchToProps = dispatch => {
     getAllGenres: () => dispatch(getAllGenres()),
     getAllSongs: () => dispatch(getAllSongs()),
     getAllFavoritesForOneUser: () => dispatch(getAllFavoritesForOneUser()),
+    getAllUsers: () => dispatch(getAllUsers()),
     getAllComments: () => dispatch(getAllComments()),
-    getAllSongsForOneGenre: genreId =>
-      dispatch(getAllSongsForOneGenre(genreId)),
-    getAllUsers: () => dispatch(getAllUsers())
+    getAllSongsForOneGenre: genreId => dispatch(getAllSongsForOneGenre(genreId))
   };
 };
 

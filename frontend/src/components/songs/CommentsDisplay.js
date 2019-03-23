@@ -9,14 +9,6 @@ class CommentsDisplay extends React.Component {
     this.state = { commentInput: "", allUserFromProps: [] };
   }
 
-  componentDidMount() {
-    if (this.props.allUsers) {
-      this.setState({
-        allUserFromProps: this.props.allUsers
-      });
-    }
-  }
-
   handleCommentInputChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -51,27 +43,28 @@ class CommentsDisplay extends React.Component {
     }
 
     let filteredCommentsMapped;
-    // let changingUserUsername = [];
+    let changingUserUsername = [];
     // let changingUserId = [];
-
-    // // for users' username
-    // if (this.props.allUsers) {
-    //   debugger;
-    //   if (this.props.allUsers.length) {
-    //     let temp = Object.values(this.props.allUsers).find(user => {
-    //       return user.id === comment.user_id;
-    //     });
-    //     changingUserUsername = temp.username;
-    //     changingUserId = temp.id;
-    //   }
-    // }
 
     if (filteredCommentsArrObj.length) {
       filteredCommentsMapped = filteredCommentsArrObj.map(comment => {
+        // for users' username
+
+        if (this.props.allUsers) {
+          if (this.props.allUsers.length) {
+            let temp = Object.values(this.props.allUsers).find(user => {
+              return user.id === comment.user_id;
+            });
+            changingUserUsername = temp.username;
+            // changingUserId = temp.id;
+          }
+        }
         return (
           <div className="commentsInnerDiv" key={comment.id}>
-            <Link to={"/profile"}>
-              <h3>{comment.user_id}</h3>
+            <Link to={`/profile/${comment.user_id}`}>
+              <h3>
+                {changingUserUsername ? changingUserUsername : comment.user_id}
+              </h3>
             </Link>
             <p>{comment.comment_body}</p>
           </div>
