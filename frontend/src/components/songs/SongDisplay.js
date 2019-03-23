@@ -33,30 +33,40 @@ class SongDisplay extends React.Component {
     }
     return (
       <div className="songsMappedDiv" key={this.props.id}>
-        <div className="songsTitleImgFavsUserDiv">
-          <h1>Title: {this.props.title}</h1>
-          <img src={this.props.img_url} alt="" />
+        <div className="songsTitleImgFavsUserDivWrapper">
+          <div className="imgContainer">
+            <img className="SongDisplayImg" src={this.props.img_url} alt="" />
+          </div>
 
-          <h2>
-            <Link to={`/profile/${this.props.user_id}`}>
-              {changingUserUsername
-                ? changingUserUsername
-                : "No Username Available"}
-            </Link>
-          </h2>
+          <div className="songsTitleFavsUserDiv">
+            <h1 className="songDisplayTitle songTitle">{this.props.title}</h1>
+
+            <h2 className="songDisplayUsername username">
+              <Link to={`/profile/${this.props.user_id}`}>
+                {changingUserUsername
+                  ? changingUserUsername
+                  : "No Username Available"}
+              </Link>
+            </h2>
+          </div>
+
+          <div className="favoriteButtonWrapperOnSongDisplay">
+            <FavoriteButtonDisplay
+              allUsers={this.props.allUsers}
+              allFavoritesForUser={this.props.allFavoritesForUser}
+              song_id={this.props.song_id}
+              isDisplayPosted={this.props.isDisplayPosted}
+            />
+          </div>
         </div>
-        <FavoriteButtonDisplay
-          allUsers={this.props.allUsers}
-          allFavoritesForUser={this.props.allFavoritesForUser}
-          song_id={this.props.song_id}
-          isDisplayPosted={this.props.isDisplayPosted}
-        />
-        <CommentsDisplay
-          allUsers={this.props.allUsers}
-          allComments={this.props.allComments}
-          song_id={this.props.song_id}
-          getAllComments={this.props.getAllComments}
-        />
+        <div className="commentsWrapperOnSongDisplay">
+          <CommentsDisplay
+            allUsers={this.props.allUsers}
+            allComments={this.props.allComments}
+            song_id={this.props.song_id}
+            getAllComments={this.props.getAllComments}
+          />
+        </div>
       </div>
     );
   }

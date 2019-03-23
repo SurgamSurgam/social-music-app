@@ -151,9 +151,8 @@ class OtherProfiles extends React.Component {
       }
     }
     return (
-      <div className="profileWrapper">
-        <h1>OTHER PROFILES PAGE</h1>
-        <h2>{usernameUser1}</h2>
+      <div className="profileWrapper topMost">
+        <h2 className="otherProfilesUsername username">{usernameUser1}</h2>
         <div className="profileButtonsContainer">
           <button
             className={
@@ -176,7 +175,7 @@ class OtherProfiles extends React.Component {
             Favorited
           </button>
         </div>
-        {songsMapped}
+        <div className="feed otherProfilesFeed">{songsMapped}</div>
       </div>
     );
   }

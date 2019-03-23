@@ -1,17 +1,136 @@
 .navWrapper {
   height: 75px;
   width: 100%;
-  border: 1px solid black;
+  background-color: #621389;
+  display: grid;
+  grid-template-columns: 35% 65%;
+}
+
+.navTitleh2 {
+  align-self: center;
+  margin-left: 90px;
+  font-size: 25px;
+  color: #d1d1d1;
+  text-shadow: 2px 2px black;
+}
+
+nav {
+  align-self: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav > a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  margin-right: 10px;
 }
 
 .allAppWithoutNavWrapper {
   display: grid;
+  background-color: #621389;
+  min-height: 690px;
 }
 
 .allAppWithoutNavContainer {
   width: 80%;
   min-width: 800px;
-  border: 1px solid red;
+  background-color: #d1d1d1;
   justify-self: center;
   padding-top: 15px;
+  border: 2px outset white;
+  margin-bottom: 40px;
+}
+
+.titleHomeContainer {
+  width: 100%;
+  height: 620px;
+  display: grid;
+  place-items: center center;
+}
+
+.topMost {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  background-color: #6d008e;
+  color: white;
+  border: 1px solid black;
+  margin-top: 10px;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+img {
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border: 2px outset black;
+}
+
+form > input {
+  width: 400px;
+  height: 25px;
+  border-radius: 5px;
+  margin-right: 30px;
+}
+
+select {
+  width: 400px;
+  height: 25px;
+  border-radius: 5px;
+  margin-right: 30px;
+}
+
+form {
+  margin: 30px;
+}
+
+.songsTitleImgFavsUserDivWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 150px;
+}
+
+.songsTitleFavsUserDiv {
+  display: flex;
+  align-items: center;
+}
+
+.songDisplayTitle {
+  margin-right: 15px;
+}
+
+.favoriteButtonWrapperOnSongDisplay > div {
+  display: flex;
+  align-items: center;
+}
+
+.favoriteButtonWrapperOnSongDisplay > div > h2 {
+  margin-right: 15px;
+}
+
+.favoriteButtonWrapperOnSongDisplay {
+  margin-bottom: 10px;
+}
+
+.songsMappedDiv {
+  border: 2px outset #00f281;
+  margin: 30px;
+  padding: 40px 0;
+  background-color: #d9d9d9;
+}
+
+.commentsInnerDiv {
+  margin-bottom: 20px;
+  font-size: 18px;
+  border-top: 1px white;
 }

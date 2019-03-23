@@ -114,21 +114,22 @@ class Songs extends React.Component {
     }
 
     return (
-      <div className="songsWrapper">
-        <h1>SONGS PAGE</h1>
-        <form
-          className="searchByTitleForm"
-          onSubmit={this.handleSubmit.bind(this)}
-        >
-          <input
-            name="searchQuery"
-            type="text"
-            value={this.state.searchQuery}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Search By Title</button>
-        </form>
-        {songsMapped}
+      <div className="songsWrapper topMost">
+        <div className="songsPageFormContainer form">
+          <form
+            className="searchByTitleForm"
+            onSubmit={this.handleSubmit.bind(this)}
+          >
+            <input
+              name="searchQuery"
+              type="text"
+              value={this.state.searchQuery}
+              onChange={this.handleChange}
+            />
+            <button type="submit">Search By Title</button>
+          </form>
+        </div>
+        <div className="feed songsFeed">{songsMapped}</div>
       </div>
     );
   }

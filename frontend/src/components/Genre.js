@@ -99,18 +99,19 @@ class Genre extends React.Component {
     }
 
     return (
-      <div className="genreWrapper">
-        <h1>GENRE PAGE</h1>
-        <form onSubmit={this.handleFormSubmit}>
-          <select name="selectedGenre" onChange={this.handleSelect}>
-            <option key="0" value="0">
-              {" "}
-            </option>
-            {genreList}
-          </select>
-          <button type="submit">Search By Genre</button>
-        </form>
-        {songsMapped}
+      <div className="genreWrapper topMost">
+        <div className="genrePageFormContainer form">
+          <form onSubmit={this.handleFormSubmit}>
+            <select name="selectedGenre" onChange={this.handleSelect}>
+              <option key="0" value="0">
+                {" "}
+              </option>
+              {genreList}
+            </select>
+            <button type="submit">Search By Genre</button>
+          </form>
+        </div>
+        <div className="feed genreFeed">{songsMapped}</div>
       </div>
     );
   }

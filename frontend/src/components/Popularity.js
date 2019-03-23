@@ -29,9 +29,8 @@ class Popularity extends React.Component {
       });
     }
     return (
-      <div className="popularityWrapper">
-        <h1>POPULARITY PAGE</h1>
-        {songsMapped}
+      <div className="popularityWrapper topMost">
+        <div className="feed genreFeed">{songsMapped}</div>
       </div>
     );
   }

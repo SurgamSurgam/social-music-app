@@ -200,9 +200,8 @@ class Profile extends React.Component {
     );
 
     return (
-      <div className="profileWrapper">
-        <h1>PROFILE PAGE</h1>
-        <h2>{usernameUser1}</h2>
+      <div className="profileWrapper topMost">
+        <h2 className="profilesUsername username">{usernameUser1}</h2>
         <div className="profileButtonsContainer">
           <button
             className={
@@ -225,8 +224,10 @@ class Profile extends React.Component {
             Favorited
           </button>
         </div>
-        {isDisplayPostedView ? displayNewSongForm : null}
-        {songsMapped}
+        <div className="profilePageFormContainer form">
+          {isDisplayPostedView ? displayNewSongForm : null}
+        </div>
+        <div className="feed profileFeed">{songsMapped}</div>
       </div>
     );
   }
