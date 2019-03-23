@@ -1,3 +1,6 @@
+.app {
+  font-family: Playfair;
+}
 .navWrapper {
   height: 75px;
   width: 100%;
@@ -48,6 +51,7 @@ nav > a {
   height: 620px;
   display: grid;
   place-items: center center;
+  font-family: Roboto;
 }
 
 .topMost {
