@@ -14,14 +14,22 @@ class App extends Component {
     return (
       <div className="App">
         <Route component={Nav} />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/songs" component={SongsContainer} />
-          <Route exact path="/songs/bypop" component={PopularityContainer} />
-          <Route exact path="/songs/bygenre" component={GenreContainer} />
-          <Route path="/profile/:id" component={OtherProfilesContainer} />
-          <Route exact path="/profile" component={ProfileContainer} />
-        </Switch>
+        <div className="allAppWithoutNavWrapper">
+          <div className="allAppWithoutNavContainer">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/songs" component={SongsContainer} />
+              <Route
+                exact
+                path="/songs/bypop"
+                component={PopularityContainer}
+              />
+              <Route exact path="/songs/bygenre" component={GenreContainer} />
+              <Route path="/profile/:id" component={OtherProfilesContainer} />
+              <Route exact path="/profile" component={ProfileContainer} />
+            </Switch>
+          </div>
+        </div>
       </div>
     );
   }
