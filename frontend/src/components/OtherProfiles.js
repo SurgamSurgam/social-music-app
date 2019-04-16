@@ -12,7 +12,6 @@ class OtherProfiles extends React.Component {
   };
 
   componentDidMount() {
-    // this.props.getAllSongsPostedByOneUser();
     this.props.dynamic_getAllSongsPostedByOneUser(+this.props.match.params.id);
     this.props.getAllFavoritesForOneUser(+this.props.match.params.id);
     this.props.getAllUsers();
@@ -20,6 +19,18 @@ class OtherProfiles extends React.Component {
     this.props.getAllFavoritesAllDetailsForOneUser(+this.props.match.params.id);
     this.props.getAllSongs();
     this.props.getAllGenres();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.props.dynamic_getAllSongsPostedByOneUser(+this.props.match.params.id);
+      this.props.getAllFavoritesForOneUser(+this.props.match.params.id);
+      this.props.getAllUsers();
+      this.props.getAllComments();
+      this.props.getAllFavoritesAllDetailsForOneUser(+this.props.match.params.id);
+      this.props.getAllSongs();
+      this.props.getAllGenres();
+    }
   }
 
   handleToggle = async val => {
@@ -73,7 +84,6 @@ class OtherProfiles extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     let { isDisplayPostedView } = this.state;
     //To display sample user 1
     let usernameUser1;
