@@ -1,5 +1,5 @@
 const pgp = require("pg-promise")({});
-const db = pgp("postgres://localhost:5432/earworm_report");
+const db = pgp("postgres://localhost:5432/earworm");
 
 const faker = require("faker");
 const allGenres = require("./genreDataSet.json");
