@@ -10,6 +10,8 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 
+// using Redux - nice!
+
 let store = createStore(RootReducer, {}, applyMiddleware(thunk, logger));
 
 window.store = store;
